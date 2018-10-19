@@ -10,7 +10,7 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 
 /**
- * Classe che permette all' utente di effettuare il login o se non è iscritto di effettuare la sua registrazione 
+ * Classe che permette all' utente di effettuare il login o se non ï¿½ iscritto di effettuare la sua registrazione 
  *
  */
 public class TestApp extends Application {
@@ -19,6 +19,7 @@ public class TestApp extends Application {
 	/**
 	 *  Metodo con cui viene caricata la pagina dedicata all'amministratore
 	 */
+	
 	@Override
 	public void start(Stage s) {
 		try {
