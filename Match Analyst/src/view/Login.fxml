@@ -6,8 +6,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -16,7 +14,7 @@
     <AnchorPane fx:id="sfondo" minHeight="0.0" minWidth="0.0" prefHeight="702.0" prefWidth="652.0" style="-fx-background-color: #1A1514;">
          <children>
             <Separator fx:id="lineaLogin" layoutX="50.0" layoutY="144.0" prefWidth="200.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-            <TextField fx:id="Username" layoutX="314.0" layoutY="210.0" prefHeight="27.0" prefWidth="153.0" style="-fx-background-color: #848484;" AnchorPane.rightAnchor="186.0">
+            <TextField fx:id="Username" layoutX="314.0" layoutY="210.0" style="-fx-background-color: #848484;" AnchorPane.rightAnchor="186.0">
                <effect>
                   <DropShadow />
                </effect>
@@ -26,7 +24,7 @@
                   <DropShadow />
                </effect>
             </TextField>
-            <Label layoutX="158.0" layoutY="212.0" style="-fx-background-image: ; -fx-alignment: #E0D9D7;" text="Username" textFill="#f5f4f4" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="158.0">
+            <Label layoutX="152.0" layoutY="208.0" style="-fx-alignment: #E0D9D7;" text="Username" textFill="#f5f4f4" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="152.0">
                <font>
                   <Font size="19.0" />
                </font>
@@ -36,7 +34,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button layoutX="314.0" layoutY="319.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0" text="LOGIN" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="186.0">
+            <Button fx:id="login" layoutX="314.0" layoutY="319.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0" text="LOGIN" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="186.0">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -44,13 +42,6 @@
                   <DropShadow />
                </effect>
             </Button>
-<<<<<<< HEAD
-            <ImageView fitHeight="370.0" fitWidth="385.0" layoutX="141.0" layoutY="-80.0">
-               <image>
-                  <Image url="@../../../../../../Downloads/logo%20app2.png" />
-               </image>
-            </ImageView>
-=======
             <Button fx:id="Registrati" layoutX="313.0" layoutY="377.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0" text="REGISTRATI">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
@@ -59,7 +50,6 @@
                   <DropShadow />
                </effect>
             </Button>
->>>>>>> 6a2236187f07a35113c29a59f396b84df01be74f
          </children></AnchorPane>
   </content>
 </ScrollPane>
