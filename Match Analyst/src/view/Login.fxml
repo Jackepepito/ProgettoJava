@@ -19,7 +19,7 @@
                   <DropShadow />
                </effect>
             </TextField>
-            <TextField layoutX="315.0" layoutY="261.0" style="-fx-background-color: #848484;" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="186.0">
+            <TextField layoutX="314.0" layoutY="260.0" style="-fx-background-color: #848484;" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="186.0">
                <effect>
                   <DropShadow />
                </effect>
@@ -35,6 +35,14 @@
                </font>
             </Label>
             <Button layoutX="314.0" layoutY="319.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0" text="LOGIN" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="186.0">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+            <Button fx:id="Registrati" layoutX="313.0" layoutY="377.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0" text="REGISTRATI">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
