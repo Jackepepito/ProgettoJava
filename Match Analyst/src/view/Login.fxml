@@ -21,7 +21,7 @@
                   <DropShadow />
                </effect>
             </TextField>
-            <TextField layoutX="315.0" layoutY="261.0" style="-fx-background-color: #848484;" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="186.0">
+            <TextField layoutX="314.0" layoutY="260.0" style="-fx-background-color: #848484;" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="186.0">
                <effect>
                   <DropShadow />
                </effect>
@@ -44,11 +44,22 @@
                   <DropShadow />
                </effect>
             </Button>
+<<<<<<< HEAD
             <ImageView fitHeight="370.0" fitWidth="385.0" layoutX="141.0" layoutY="-80.0">
                <image>
                   <Image url="@../../../../../../Downloads/logo%20app2.png" />
                </image>
             </ImageView>
+=======
+            <Button fx:id="Registrati" layoutX="313.0" layoutY="377.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0" text="REGISTRATI">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Button>
+>>>>>>> 6a2236187f07a35113c29a59f396b84df01be74f
          </children></AnchorPane>
   </content>
 </ScrollPane>
