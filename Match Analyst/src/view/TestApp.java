@@ -8,7 +8,7 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import DB.database;
+import DB.Database;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -39,7 +39,7 @@ public class TestApp extends Application {
 	         
 	         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 	             public void handle(WindowEvent we) {
-	                 database.closeConnection();
+	                 Database.closeConnection();
 	                 System.out.println("!!");
 	             }
 	         });
@@ -54,7 +54,7 @@ public class TestApp extends Application {
 	
 
 	public static void main(String[] args) {
-		database db = new database();
+		Database db = new Database();
 		db.testInsert();
 		launch(args);
 	}
