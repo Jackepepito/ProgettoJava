@@ -42,7 +42,7 @@ public class Database {
 	public void testInsert() {
         try{
         	// creare tabelle 
-        st.executeUpdate("CREATE TABLE IF NOT EXISTS utente (username varchar(25) PRIMARY KEY, password varchar(30),");
+        st.executeUpdate("CREATE TABLE IF NOT EXISTS utente (username varchar(25) PRIMARY KEY, password varchar(30)");
      
         }
 		catch (SQLException e){ 
