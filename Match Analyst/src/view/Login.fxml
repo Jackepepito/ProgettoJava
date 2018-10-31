@@ -32,14 +32,14 @@
                   <DropShadow />
                </effect>
             </PasswordField>
-            <Label layoutX="122.0" layoutY="180.0" style="-fx-alignment: #E0D9D7;" text="Username" textFill="#fcf7f7" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="122.0">
+            <Label layoutX="120.0" layoutY="178.0" text="Username" textFill="#fcf7f7" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="120.0">
                <font>
-                  <Font name="Tahoma Bold" size="16.0" />
+                  <Font name="Coco Gothic Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="122.0" layoutY="250.0" style="-fx-alignment: #E0D9D7;" text="Password" textFill="#f8f5f5" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="122.0">
+            <Label layoutX="122.0" layoutY="250.0" style="-fx-alignment: #E0D9D7;" text="Password" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="122.0">
                <font>
-                  <Font name="Tahoma Bold" size="16.0" />
+                  <Font name="Coco Gothic Bold" size="19.0" />
                </font>
             </Label>
             <Button fx:id="registrati" layoutX="328.0" layoutY="210.0" mnemonicParsing="false" opacity="0.89" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: #b60109;" text="REGISTRATI" textFill="WHITE">
@@ -50,15 +50,15 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button layoutX="79.0" layoutY="331.0" mnemonicParsing="false" onAction="#login" opacity="0.9" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #b60109;" text="LOGIN" textFill="WHITE" />
-            <Label layoutX="349.0" layoutY="182.0" text="Non sei registrato?" textFill="#f5efef">
+            <Button layoutX="74.0" layoutY="334.0" mnemonicParsing="false" onAction="#login" opacity="0.9" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #b60109;" text="LOGIN" textFill="WHITE" />
+            <Label layoutX="332.0" layoutY="179.0" text="Non sei registrato?" textFill="#f5efef">
                <font>
-                  <Font name="Tahoma Bold" size="14.0" />
+                  <Font name="Coco Gothic Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="errore" layoutX="268.0" layoutY="289.0" opacity="0.89" text="Username o Password errati" textFill="#b60109">
+            <Label fx:id="errore" layoutX="268.0" layoutY="289.0" opacity="0.89" text="Username o Password errati" textFill="#b5020bda">
                <font>
-                  <Font name="Tahoma Bold" size="14.0" />
+                  <Font name="Coco Gothic Bold" size="16.0" />
                </font>
             </Label>
          </children></AnchorPane>
