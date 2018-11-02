@@ -1,5 +1,7 @@
 package controller;
 
+// MATCH ANALYST
+
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +23,7 @@ import view.TestApp;
 public class LoginController {
 
     @FXML
-    private Separator lineaLogin;
+    private Separator login;
 
     @FXML
     private TextField username;
@@ -30,13 +32,14 @@ public class LoginController {
     private PasswordField password;
 
     @FXML
-    private Button registrati;
+    private Button registrazione;
 
     @FXML
     private Label errore;
 
 
-
+// Metodo invocato quando l'utente esegue il login
+    
 @FXML
 void login(ActionEvent e) {
 	try {
@@ -61,5 +64,22 @@ void login(ActionEvent e) {
 		System.out.println("Errore nell' interrogazione al DB");
 	}
 }
+
+// Metodo che viene invocato quando l'utente effettua la registrazione all'applicazione
+
+@FXML
+void registrazione(ActionEvent event) {
+	try {
+		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Registrazione.fxml"));
+		ScrollPane registrazione = (ScrollPane) loader.load();
+		Scene scene = new Scene(registrazione);
+		TestApp.getStage().setScene(scene);
+	} catch (IOException e1) {
+		e1.printStackTrace();
+	}
+}
+
+
+
 }
 

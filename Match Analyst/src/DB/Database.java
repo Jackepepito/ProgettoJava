@@ -42,7 +42,8 @@ public class Database {
 	public void testInsert() {
         try{
         	// creare tabelle 
-        st.executeUpdate("CREATE TABLE IF NOT EXISTS utente (username varchar(25) PRIMARY KEY, password varchar(30)");
+        st.executeUpdate("CREATE TABLE IF NOT EXISTS utente (username varchar(25) PRIMARY KEY, password varchar(30), "
+        		+ "nome varchar(25), cognome varchar(25), squadra varchar(25), stagione varchar(25))");
      
         }
 		catch (SQLException e){ 
@@ -91,6 +92,7 @@ public class Database {
 				System.out.println("Errore nella chiusura dello statement");
 			}
 		}
+		
 		if (con != null){
 			try {
 				con.close();
