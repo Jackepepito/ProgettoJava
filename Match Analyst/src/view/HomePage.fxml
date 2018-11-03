@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomePageController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="690.0" styleClass="bodybg" stylesheets="@background.css">
          <children>
@@ -15,7 +15,7 @@
                   <Image url="@../../Image/logo%20appRED-WHITE.png" />
                </image>
             </ImageView>
-            <Button fx:id="logout" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" opacity="0.6" style="-fx-background-color: #b60109;" text="Logout" textFill="WHITE" />
+            <Button fx:id="indietro" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" opacity="0.6" style="-fx-background-color: #b60109;" text="Logout" textFill="WHITE" />
          </children></AnchorPane>
   </content>
 </ScrollPane>

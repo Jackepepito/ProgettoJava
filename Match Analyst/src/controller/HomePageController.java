@@ -1,6 +1,8 @@
 package controller;
 
-import java.awt.event.ActionEvent;
+// MATCH ANALYST
+
+import javafx.event.ActionEvent;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -13,8 +15,10 @@ import view.TestApp;
 public class HomePageController {
 
     @FXML
-    private Button logout;
+    private Button indietro;
 
+   // Metodo che permette di tornare alla pagina di login 
+    
     @FXML
     void logout(ActionEvent event) {
        	try {
