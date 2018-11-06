@@ -44,7 +44,9 @@ public class Database {
         	// creare tabelle 
         st.executeUpdate("CREATE TABLE IF NOT EXISTS utente (username varchar(25) PRIMARY KEY, password varchar(30), "
         		+ "nome varchar(25), cognome varchar(25), squadra varchar(25), stagione varchar(25))");
-     
+        st.executeUpdate("CREATE TABLE IF NOT EXISTS giocatore (nome VARCHAR(50) ,cognome varchar(50),numero INTEGER,ruolo varchar(20) primary key ,altezza_cm integer)");
+        st.executeUpdate("CREATE TABLE IF NOT EXISTS partita (avversario VARCHAR(50) , n_giornata integer primary key,golfatti integer, golsubiti integer,falli_commessi integer)");
+       //mancano i marcatori della partita e gli eventuali vincoli e i default..
         }
 		catch (SQLException e){ 
 			e.printStackTrace();
