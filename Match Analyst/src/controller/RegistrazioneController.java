@@ -15,7 +15,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import DB.Database;
+import model.Database;
 import view.TestApp;
 
 public class RegistrazioneController {

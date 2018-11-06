@@ -11,12 +11,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import view.TestApp;
+import model.*;
 
 public class HomePageController {
 
     @FXML
     private Button indietro;
-
+    
+    private Utente user;
+    private Database db;
+    
+    public HomePageController(Utente user, Database db)
+    {
+    		this.user = user;
+    		this.db = db;
+    }
+    
    // Metodo che permette di tornare alla pagina di login 
     
     @FXML

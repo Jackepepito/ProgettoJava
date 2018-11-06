@@ -16,8 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
-import DB.Database;
-//import model.Utente;
+import model.*;
 import view.TestApp;
 
 public class LoginController {
@@ -36,9 +35,13 @@ public class LoginController {
 
     @FXML
     private Label errore;
+    
+    private Database db;
 
-
-// Metodo invocato quando l'utente esegue il login
+public LoginController(Database db)
+{
+	this.db = db;
+}
     
 @FXML
 void login(ActionEvent e) {
@@ -46,7 +49,7 @@ void login(ActionEvent e) {
 		ResultSet rs = Database.query("SELECT * from Utente where username = '" +username.getText()+ "' AND password = '" +String.valueOf(password.getText())+ "'");
 		if (rs.next()){
 			try {
-				HomePageController controller = new HomePageController();//(new Utente(rs.getString("username")));
+				HomePageController controller = new HomePageController(new Utente(rs.getString("username")), db);
 				FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("HomePage.fxml"));
 				loader.setController(controller);
 				ScrollPane registrazione = (ScrollPane) loader.load();

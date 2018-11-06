@@ -8,10 +8,11 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import DB.Database;
+import model.Database;
 import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import controller.*;
 
 /**
  * Classe che permette all' utente di effettuare il login o se non � iscritto di effettuare la sua registrazione 
@@ -19,6 +20,7 @@ import javafx.scene.control.*;
  */
 public class TestApp extends Application {
 	static Stage stage;
+	static Database db;
 	
 	/**
 	 *  Metodo con cui viene caricata la pagina dedicata all'amministratore
@@ -28,7 +30,9 @@ public class TestApp extends Application {
 	public void start(Stage s) {
 		try {
 			 stage=s;
+			 LoginController controller = new LoginController(db);
 			 FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Login.fxml"));
+			 loader.setController(controller);
 	         ScrollPane loginLayout = (ScrollPane) loader.load();
 	    
 	         Scene scene = new Scene(loginLayout);
@@ -54,7 +58,7 @@ public class TestApp extends Application {
 	
 
 	public static void main(String[] args) {
-		Database db = new Database();
+		db = new Database();
 		db.testInsert();
 		launch(args);
 	}
