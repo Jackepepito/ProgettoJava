@@ -33,7 +33,7 @@
                   <TableColumn prefWidth="75.0" text="Minuti" />
               </columns>
             </TableView>
-            <Label layoutX="14.0" layoutY="60.0" prefHeight="18.0" prefWidth="256.0" text="MONTELEONE CALCIO">
+            <Label layoutX="14.0" layoutY="60.0" prefHeight="18.0" prefWidth="256.0" text="A.s.D. Ginestra Sabina">
                <font>
                   <Font name="System Italic" size="22.0" />
                </font>

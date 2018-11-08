@@ -3,7 +3,6 @@ package controller;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Calendar;
 import javafx.event.*;
 
 import javafx.fxml.FXML;
@@ -11,11 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import model.Database;
+import model.*;
 import view.TestApp;
 
 public class RegistrazioneController {
@@ -46,13 +44,21 @@ public class RegistrazioneController {
     
     @FXML
     private Label messaggio;
-
+    
+    private Database db;
+    	
+    public RegistrazioneController(Database db)
+    {
+    		this.db = db;
+    }
     @FXML
     void indietro(ActionEvent event) {
     	try {
-			FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Login.fxml"));
-			ScrollPane login = (ScrollPane) loader.load();
-			Scene scene = new Scene(login);
+    			FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Login.fxml")); // Istanzio una nuova pagina fxml, in questo caso login
+    			LoginController controller = new LoginController(db); // Istanzio un controller che andrà a controllare la mia pagina
+			loader.setController(controller); // associo il controller alla pagina, in questo modo la pagina è controllata dalla classe LoginController
+			ScrollPane s = (ScrollPane) loader.load(); // Carico la pagina, che in questo momento si apre
+			Scene scene = new Scene(s); // In questo modo visualizzo graficamente lo scrollpane
 			TestApp.getStage().setScene(scene);
 		} catch (IOException e1) {
 			e1.printStackTrace();

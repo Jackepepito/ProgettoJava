@@ -52,8 +52,8 @@ void login(ActionEvent e) {
 				HomePageController controller = new HomePageController(new Utente(rs.getString("username")), db);
 				FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("HomePage.fxml"));
 				loader.setController(controller);
-				ScrollPane registrazione = (ScrollPane) loader.load();
-				Scene scene = new Scene(registrazione);
+				ScrollPane s = (ScrollPane) loader.load();
+				Scene scene = new Scene(s);
 				TestApp.getStage().setScene(scene);
 			} catch (IOException e1) {
 				e1.printStackTrace();
@@ -73,9 +73,11 @@ void login(ActionEvent e) {
 @FXML
 void registrazione(ActionEvent event) {
 	try {
+		RegistrazioneController controller = new RegistrazioneController(db);
 		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Registrazione.fxml"));
-		ScrollPane registrazione = (ScrollPane) loader.load();
-		Scene scene = new Scene(registrazione);
+		loader.setController(controller);
+		ScrollPane s = (ScrollPane) loader.load();
+		Scene scene = new Scene(s);
 		TestApp.getStage().setScene(scene);
 	} catch (IOException e1) {
 		e1.printStackTrace();

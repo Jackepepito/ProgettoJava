@@ -1,7 +1,5 @@
 package controller;
 
-// MATCH ANALYST
-
 import javafx.event.ActionEvent;
 import java.io.IOException;
 
@@ -13,30 +11,25 @@ import javafx.scene.control.ScrollPane;
 import view.TestApp;
 import model.*;
 
-public class HomePageController {
+public class RosaController {
 
     @FXML
     private Button indietro;
-    
-    private Utente user;
     private Database db;
     
-    public HomePageController(Utente user, Database db)
+    // Costruttore
+    public RosaController(Database db)
     {
-    		this.user = user;
     		this.db = db;
     }
-    
-   // Metodo che permette di tornare alla pagina di login 
-    
     @FXML
     void logout(ActionEvent event) {
        	try {
        		LoginController controller = new LoginController(db);
     			FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Login.fxml"));
     			loader.setController(controller);
-    			ScrollPane login = (ScrollPane) loader.load();
-    			Scene scene = new Scene(login);
+    			ScrollPane s = (ScrollPane) loader.load();
+    			Scene scene = new Scene(s);
     			TestApp.getStage().setScene(scene);
     		} catch (IOException e1) {
     			e1.printStackTrace();
