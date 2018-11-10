@@ -3,29 +3,50 @@ package controller;
 // MATCH ANALYST
 
 import javafx.event.ActionEvent;
+
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import view.TestApp;
 import model.*;
+import javafx.fxml.Initializable;
 
-public class HomePageController {
+public class HomePageController implements Initializable {
 
     @FXML
     private Button indietro;
     
+    
     private Utente user;
     private Database db;
+    
+    @FXML
+    private Label nomesquadra;
+   
     
     public HomePageController(Utente user, Database db)
     {
     		this.user = user;
     		this.db = db;
     }
+    
+    /**
+     * Metodo che viene richiamato a ogni apertura dell'interfaccia che permette di settare le informazioni dell'utente 
+     */
+    
+    @Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		nomesquadra.setText(user.getSquadra());
+		
+	}
+ 
     
    // Metodo che permette di tornare alla pagina di login 
     
@@ -42,5 +63,5 @@ public class HomePageController {
     			e1.printStackTrace();
     		}
     }
-
+    
 }
