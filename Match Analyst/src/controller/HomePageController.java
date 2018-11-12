@@ -33,9 +33,11 @@ public class HomePageController implements Initializable {
     @FXML
     private Label nomecognome;
     
-    @FXML
-    private Button rosa;
+    //@FXML
+    //private Button rosa;
     
+    //@FMXL
+    //private Button 
     public HomePageController(Utente user, Database db)
     {
     		this.user = user;
@@ -51,8 +53,21 @@ public class HomePageController implements Initializable {
 		nomesquadra.setText(user.getSquadra());
 		nomecognome.setText(user.getNome() + " " + user.getCognome());
 	}
- 
     
+    @FXML
+    void nuovaPartita(ActionEvent event)
+    {
+     	try {
+    		NuovaPartitaController controller = new NuovaPartitaController(user, db);
+    		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("NuovaPartita.fxml"));
+    		loader.setController(controller);
+    		ScrollPane s = (ScrollPane) loader.load();
+    		Scene scene = new Scene(s);
+    		TestApp.getStage().setScene(scene);
+    	} catch (IOException e1) {
+    		e1.printStackTrace();
+    	}
+    }
 
     @FXML
     void rosa(ActionEvent event) {

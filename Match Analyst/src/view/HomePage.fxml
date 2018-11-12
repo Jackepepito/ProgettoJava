@@ -19,16 +19,16 @@
                </image>
             </ImageView>
             <Button fx:id="indietro" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#logout" opacity="0.6" style="-fx-background-color: #b60109;" text="Logout" textFill="WHITE" />
-            <Label fx:id="nomesquadra" layoutX="261.0" layoutY="21.0" opacity="0.93" text="Label" textFill="#b60109">
+            <Label fx:id="nomesquadra" layoutX="257.0" layoutY="28.0" opacity="0.78" text="Label" textFill="WHITE">
                <font>
                   <Font name="Coco Gothic Bold" size="48.0" />
                </font>
             </Label>
             <ToolBar layoutX="37.0" layoutY="349.0" prefHeight="40.0" prefWidth="598.0" style="-fx-background-color: #4682B4#4682B4;">
               <items>
-                <Button fx:id="rosa" mnemonicParsing="false" onAction="#rosa" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #b60109;" text="ROSA" textFill="WHITE">
+                <Button mnemonicParsing="false" onAction="#nuovaPartita" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #b60109;" text="NUOVA PARTITA" textFill="WHITE">
                      <font>
-                        <Font name="Coco Gothic Bold" size="13.0" />
+                        <Font name="Coco Gothic Bold" size="12.0" />
                      </font>
                   </Button>
                   <Button mnemonicParsing="false" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="STATISTICHE" textFill="WHITE">
@@ -41,7 +41,10 @@
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="..." textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#rosa" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="ROSA" textFill="WHITE">
+                     <font>
+                        <Font name="Coco Gothic Bold" size="13.0" />
+                     </font></Button>
               </items>
             </ToolBar>
             <Label fx:id="nomecognome" layoutX="83.0" layoutY="17.0" prefHeight="21.0" prefWidth="181.0" text="Label" textFill="WHITE">
