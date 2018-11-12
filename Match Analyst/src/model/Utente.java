@@ -11,7 +11,8 @@ package model;
 		
 	private String username;
 	private String squadra;
-	
+	private String nome;
+	private String cognome;
 	    
 		/**
 		 * Costruttore che serve per inserire le informazione nell'utente
@@ -22,6 +23,8 @@ package model;
 			ResultSet rs = Database.query("SELECT * from Utente where username = '" +this.username+ "'");
 			try {			
 				this.squadra=rs.getString("squadra");
+				this.nome=rs.getString("nome");
+				this.cognome=rs.getString("cognome");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -36,6 +39,13 @@ package model;
 			return squadra;
 		}
 		
+		public String getNome(){
+			return nome;
+		}
+		
+		public String getCognome(){
+			return cognome;
+		}
 		
 		public void setSquadra(String squadra){
 			this.squadra=squadra;

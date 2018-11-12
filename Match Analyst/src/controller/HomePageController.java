@@ -29,7 +29,12 @@ public class HomePageController implements Initializable {
     
     @FXML
     private Label nomesquadra;
-   
+    
+    @FXML
+    private Label nomecognome;
+    
+    @FXML
+    private Button rosa;
     
     public HomePageController(Utente user, Database db)
     {
@@ -44,12 +49,25 @@ public class HomePageController implements Initializable {
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		nomesquadra.setText(user.getSquadra());
-		
+		nomecognome.setText(user.getNome() + " " + user.getCognome());
 	}
  
     
-   // Metodo che permette di tornare alla pagina di login 
-    
+
+    @FXML
+    void rosa(ActionEvent event) {
+    	try {
+    		RosaController controller = new RosaController(user, db);
+    		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Rosa.fxml"));
+    		loader.setController(controller);
+    		ScrollPane s = (ScrollPane) loader.load();
+    		Scene scene = new Scene(s);
+    		TestApp.getStage().setScene(scene);
+    	} catch (IOException e1) {
+    		e1.printStackTrace();
+    	}
+    }
+
     @FXML
     void logout(ActionEvent event) {
        	try {

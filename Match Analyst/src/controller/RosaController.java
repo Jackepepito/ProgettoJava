@@ -16,17 +16,19 @@ public class RosaController {
     @FXML
     private Button indietro;
     private Database db;
+    private Utente user;
     
     // Costruttore
-    public RosaController(Database db)
+    public RosaController(Utente user, Database db)
     {
     		this.db = db;
+    		this.user = user;
     }
     @FXML
-    void logout(ActionEvent event) {
+    void indietro(ActionEvent event) {
        	try {
-       		LoginController controller = new LoginController(db);
-    			FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Login.fxml"));
+       		HomePageController controller = new HomePageController(user, db);
+    			FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("HomePage.fxml"));
     			loader.setController(controller);
     			ScrollPane s = (ScrollPane) loader.load();
     			Scene scene = new Scene(s);
