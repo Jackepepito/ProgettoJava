@@ -93,32 +93,37 @@
                            </font>
                         </Label>
                         <TextField fx:id="avversario" prefHeight="24.0" prefWidth="185.0" GridPane.columnIndex="1" />
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="gol_segnati" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="GOL SUBITI" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="Coco Gothic Bold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField prefHeight="27.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                        <ComboBox prefHeight="27.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <ComboBox fx:id="gol_subiti" prefHeight="27.0" prefWidth="69.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="marcatori" prefHeight="27.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="possesso_palla" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="tiri_tot" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="tiri_porta" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <ComboBox fx:id="falli_commessi" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="falli_subiti" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <ComboBox fx:id="parate" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                      </children>
                   </GridPane>
-                  <Button layoutX="369.0" layoutY="275.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" text="AGGIUNGI" textFill="#b60109">
+                  <Button layoutX="369.0" layoutY="275.0" mnemonicParsing="false" onAction="#aggiungi" prefHeight="36.0" prefWidth="111.0" text="AGGIUNGI" textFill="#b60109">
                      <font>
                         <Font name="Coco Gothic Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="354.0" layoutY="100.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="49.0" text="ADD" textFill="#b60109">
+                  <Button layoutX="354.0" layoutY="100.0" mnemonicParsing="false" onAction="#add_marcatore" prefHeight="30.0" prefWidth="49.0" text="ADD" textFill="#b60109">
                      <font>
                         <Font name="Coco Gothic Bold" size="12.0" />
                      </font>
                   </Button>
+                  <Label layoutX="316.0" layoutY="251.0" textFill="WHITE">
+                     <font>
+                        <Font name="Coco Gothic Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children></AnchorPane>
