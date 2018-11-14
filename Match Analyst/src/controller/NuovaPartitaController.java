@@ -1,6 +1,10 @@
 package controller;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 
 import javafx.event.ActionEvent;
@@ -117,22 +121,27 @@ public class NuovaPartitaController implements Initializable {
     }
 	
 	@FXML
-	void aggiungi(ActionEvent event)
-	{
-		/*boolean cont = true;
+    void aggiungi(ActionEvent event) {
+
+    	boolean cont = true;
 		if(avversario.getText().isEmpty() || gol_segnati.getItems().isEmpty() || gol_subiti.getItems().isEmpty() || marcatori.getText().isEmpty() || possesso_palla.getItems().isEmpty() 
 				|| tiri_tot.getItems().isEmpty() || tiri_porta.getItems().isEmpty() || falli_commessi.getItems().isEmpty() 
-				|| falli_subiti.getItems().isEmpty() || parate.getItems().isEmpty()) {
-				messaggio.setText("Riempire i campi obbligatori");
+				|| falli_subiti.getItems().isEmpty() || parate.getItems().isEmpty()){
+			messaggio.setText("Riempire i campi obbligatori");
 			System.out.println("Riempire i campi obbligatori");
 			cont = false;
 		}
-		if(cont == true)
-		{ 
-				Database.update("INSERT INTO Partita VALUES ('" +avversario.getText()+ "')");
-				
-			}*/
-		}
+		
+		if(cont) {
+			Database.update("INSERT INTO partita VALUES ('" +avversario.getText()+ "','" +gol_segnati.getValue()+ "','"
+					+gol_subiti.getValue()+ "','" +marcatori.getText()+ "', " +possesso_palla.getValue()+ "','"  
+					+tiri_tot.getValue()+ "', '" +tiri_porta.getValue()+"', '" +falli_commessi.getValue()+"','"
+					+falli_subiti.getValue()+ "', '"+parate.getValue()+"')");
+			System.out.println("Inserimento avvenuto con successo!");
+			
+	}
+
+    }
 	
 	@FXML
 	void add_marcatore(ActionEvent event)
@@ -140,3 +149,5 @@ public class NuovaPartitaController implements Initializable {
 		
 	}
 }
+
+
