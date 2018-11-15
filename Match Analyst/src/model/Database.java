@@ -44,7 +44,7 @@ public class Database {
    
         st.executeUpdate("CREATE TABLE IF NOT EXISTS utente (username varchar(25) PRIMARY KEY, password varchar(30), "
         		+ "nome varchar(25), cognome varchar(25), squadra varchar(25), stagione varchar(25))");
-        st.executeUpdate("CREATE TABLE IF NOT EXISTS giocatore (nome VARCHAR(50) ,cognome varchar(50),numero INTEGER PRIMARY KEY,ruolo varchar(20) primary key ,altezza_cm integer)");
+        st.executeUpdate("CREATE TABLE IF NOT EXISTS giocatore (numero INTEGER primary key,nome VARCHAR(50) ,cognome varchar(50),ruolo varchar(20),gol INTEGER,assist INTEGER,golsubiti INTEGER)");
         st.executeUpdate("CREATE TABLE IF NOT EXISTS partita (avversario VARCHAR(50) PRIMARY KEY, gol_segnati INTEGER, gol_subiti INTEGER, marcatori varchar(50), "
         		+ "possesso_palla INTEGER, tiri_tot INTEGER ,tiri_porta INTEGER, falli_commessi INTEGER, falli_subiti INTEGER, parate INTEGER)");
        // st.executeUpdate("CREATE TABLE IF NOT EXISTS marcatore (partita varchar(50) references partita(avversario), numero INTEGER references giocatore(numero)");
