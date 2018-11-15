@@ -18,9 +18,9 @@ package model;
 		 * Costruttore che serve per inserire le informazione nell'utente
 		 * @param username
 		 */
-		public Utente(String username){
+		public Utente(String username, Database db){
 			this.username=username;
-			ResultSet rs = Database.query("SELECT * from Utente where username = '" +this.username+ "'");
+			ResultSet rs = db.query("SELECT * from Utente where username = '" +this.username+ "'");
 			try {			
 				this.squadra=rs.getString("squadra");
 				this.nome=rs.getString("nome");

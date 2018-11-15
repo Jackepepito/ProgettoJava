@@ -85,7 +85,7 @@ public class RosaController implements Initializable{
 
   
     
-    @FXML//vedi se è da inserire su scenbuilder
+    @FXML//vedi se ï¿½ da inserire su scenbuilder
     private Label messaggio;
     
     private Utente user;
@@ -131,7 +131,7 @@ public class RosaController implements Initializable{
 		if(cont){
 			try {
 				ResultSet rs;
-				rs = Database.query("SELECT * FROM Giocatore U where U.numero = '" +numeroinput.getValue()+ "'");
+				rs = db.query("SELECT * FROM Giocatore U where U.numero = '" +numeroinput.getValue()+ "'");
 				Giocatore giocatore= new Giocatore(this.user);
 				giocatore.setGiocatoreNumero(numeroinput.getValue());
 				giocatore.setGiocatoreNome(nomeinput.getText());
@@ -145,7 +145,7 @@ public class RosaController implements Initializable{
 					messaggio.setText("Numero non disponibile");
 				}
 				else {
-					Database.update("INSERT INTO Giocatore VALUES ('" +numeroinput.getValue()+ "','" + nomeinput.getText()+ "','"
+					db.update("INSERT INTO Giocatore VALUES ('" +numeroinput.getValue()+ "','" + nomeinput.getText()+ "','"
 						+cognomeinput.getText()+ "','" + ruoloinput.getText() + "','" +golinput.getValue()+ "','"  +assistinput.getValue()+ "','"  +golsubitiinput.getValue()+ "')");
 				
 				

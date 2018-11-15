@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import view.TestApp;
 import model.*;
@@ -28,6 +30,9 @@ public class CalendarioController implements Initializable {
     private ComboBox<String> partite;
     
     @FXML
+    private Label prova;
+    
+    @FXML
     private Button scegli;
     
 	public CalendarioController(Utente user, Database db)
@@ -37,8 +42,14 @@ public class CalendarioController implements Initializable {
 	}
 	
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	//ResultSet rs = Database.query("SELECT count(partita.avversario) from partita");
-	
+		ResultSet rs = db.query("Select avversario, girone from partita");
+		try {
+			while(rs.next()) {
+				partite.getItems().add(rs.getString("avversario")+ " "+ rs.getString("girone"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void indietro(ActionEvent event)

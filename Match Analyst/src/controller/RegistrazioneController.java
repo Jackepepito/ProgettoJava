@@ -78,12 +78,12 @@ public class RegistrazioneController {
 		if(cont){
 			try {
 				ResultSet rs;
-				rs = Database.query("SELECT * FROM Utente U where U.username = '" +username.getText()+ "'");
+				rs = db.query("SELECT * FROM Utente U where U.username = '" +username.getText()+ "'");
 				if (rs.next()){
 					messaggio.setText("Username non valido");
 				}
 				else {
-					Database.update("INSERT INTO Utente VALUES ('" +username.getText()+ "','" + password.getText()+ "','"
+					db.update("INSERT INTO Utente VALUES ('" +username.getText()+ "','" + password.getText()+ "','"
 						+nome.getText()+ "','" + cognome.getText() + "','" +squadra.getText()+ "','"  +stagione.getText()+ "')");
 				}	
 			}

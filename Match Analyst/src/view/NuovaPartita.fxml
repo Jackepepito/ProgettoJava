@@ -124,6 +124,7 @@
                         <Font name="Coco Gothic Bold" size="12.0" />
                      </font>
                   </Label>
+                  <ComboBox fx:id="girone" layoutX="347.0" layoutY="6.0" prefHeight="27.0" prefWidth="58.0" />
                </children>
             </AnchorPane>
          </children></AnchorPane>
