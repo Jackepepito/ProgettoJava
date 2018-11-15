@@ -82,7 +82,21 @@ public class HomePageController implements Initializable {
     		e1.printStackTrace();
     	}
     }
-
+    
+    @FXML
+    void calendario(ActionEvent event) {
+    	try {
+    		CalendarioController controller = new CalendarioController(user, db);
+    		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Calendario.fxml"));
+    		loader.setController(controller);
+    		ScrollPane s = (ScrollPane) loader.load();
+    		Scene scene = new Scene(s);
+    		TestApp.getStage().setScene(scene);
+    	} catch (IOException e1) {
+    		e1.printStackTrace();
+    	}
+    }
+    
     @FXML
     void logout(ActionEvent event) {
        	try {

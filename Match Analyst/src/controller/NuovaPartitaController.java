@@ -134,7 +134,7 @@ public class NuovaPartitaController implements Initializable {
 		
 		if(cont) {
 			Database.update("INSERT INTO partita VALUES ('" +avversario.getText()+ "','" +gol_segnati.getValue()+ "','"
-					+gol_subiti.getValue()+ "','" +marcatori.getText()+ "', " +possesso_palla.getValue()+ "','"  
+					+gol_subiti.getValue()+ "','" +marcatori.getText()+ "', '" +possesso_palla.getValue()+ "','"  
 					+tiri_tot.getValue()+ "', '" +tiri_porta.getValue()+"', '" +falli_commessi.getValue()+"','"
 					+falli_subiti.getValue()+ "', '"+parate.getValue()+"')");
 			System.out.println("Inserimento avvenuto con successo!");

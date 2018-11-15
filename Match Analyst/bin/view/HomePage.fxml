@@ -36,7 +36,7 @@
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="CALENDARIO" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#calendario" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="CALENDARIO" textFill="WHITE">
                      <font>
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font>
