@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import view.TestApp;
 import model.*;
 
@@ -34,6 +35,34 @@ public class CalendarioController implements Initializable {
     
     @FXML
     private Button scegli;
+    
+
+    @FXML
+    private Label gol_segnati;
+
+    @FXML
+    private Label gol_subiti;
+
+    @FXML
+    private Label marcatori;
+
+    @FXML
+    private Label possesso_palla;
+
+    @FXML
+    private Label tiri_tot;
+
+    @FXML
+    private Label tiri_porta;
+
+    @FXML
+    private Label falli_commessi;
+
+    @FXML
+    private Label falli_subiti;
+
+    @FXML
+    private Label parate;
     
 	public CalendarioController(Utente user, Database db)
 	{
@@ -69,6 +98,14 @@ public class CalendarioController implements Initializable {
 	@FXML
 	public void scegli(ActionEvent event)
 	{
-		
+		ResultSet rs = db.query("Select * from partita");
+		try {
+			
+			gol_segnati.setText(rs.getString("gol_segnati"));
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		//gol_segnati.setText("SELECT gol_segnati from partite where avversario = '" +partite.getItems().add("avversario")+ "' and girone = '" +partite.getItems().add("avversario")+ "'");
 	}
 }
