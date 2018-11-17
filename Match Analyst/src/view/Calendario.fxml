@@ -101,14 +101,14 @@
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="gol_segnati" textFill="WHITE" GridPane.columnIndex="1">
+                        <Label fx:id="gol_segnati" text="2" textFill="WHITE" GridPane.columnIndex="1">
                            <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
+                              <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
                         <Label fx:id="gol_subiti" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
+                              <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
                         <Label fx:id="marcatori" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />

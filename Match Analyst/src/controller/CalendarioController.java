@@ -98,10 +98,16 @@ public class CalendarioController implements Initializable {
 	@FXML
 	public void scegli(ActionEvent event)
 	{
-		ResultSet rs = db.query("Select * from partita");
+		String[] value = partite.getValue().split(" ");
+		System.out.println(partite.getValue());
+		System.out.println(value[0]);
+		System.out.println(value[1]);
+		ResultSet rs = db.query("Select * from partita where avversario = '" +value[0]+ "' and girone = '" +value[1]+ "' ");
 		try {
-			
-			gol_segnati.setText(rs.getString("gol_segnati"));
+			System.out.println(rs.getInt("gol_segnati"));
+			System.out.println(new Integer(rs.getInt("gol_segnati")));
+			System.out.println(new Integer(rs.getInt("gol_segnati")).toString());
+			gol_segnati.setText(new Integer(rs.getInt("gol_segnati")).toString());
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
