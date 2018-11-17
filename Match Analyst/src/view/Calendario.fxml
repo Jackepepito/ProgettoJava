@@ -16,6 +16,7 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="690.0" styleClass="bodybg" stylesheets="@background.css">
          <children>
+            <AnchorPane layoutX="45.0" layoutY="57.0" opacity="0.63" prefHeight="36.0" prefWidth="207.0" style="-fx-background-color: #b60109;" />
             <ImageView fitHeight="200.0" fitWidth="199.0" layoutX="477.0" layoutY="-67.0">
                <image>
                   <Image url="@../../Image/logo%20appRED-WHITE.png" />
@@ -26,18 +27,18 @@
                   <Font name="Coco Gothic Bold" size="13.0" />
                </font>
             </Button>
-            <ComboBox fx:id="partite" layoutX="14.0" layoutY="98.0" opacity="0.6" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #B60109;" />
-            <Label layoutX="17.0" layoutY="69.0" text="SELEZIONA PARTITA" textFill="WHITE">
+            <ComboBox fx:id="partite" layoutX="21.0" layoutY="98.0" opacity="0.62" prefHeight="35.0" prefWidth="173.0" style="-fx-background-color: #b60109;" />
+            <Label layoutX="65.0" layoutY="64.0" opacity="0.86" text="SELEZIONA PARTITA" textFill="WHITE">
                <font>
                   <Font name="Coco Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="scegli" layoutX="200.0" layoutY="98.0" mnemonicParsing="false" onAction="#scegli" opacity="0.6" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #B60109;" text="SCEGLI" textFill="WHITE">
+            <Button fx:id="scegli" layoutX="207.0" layoutY="98.0" mnemonicParsing="false" onAction="#scegli" opacity="0.6" prefHeight="35.0" prefWidth="64.0" style="-fx-background-color: #b60109;" text="SCEGLI" textFill="WHITE">
                <font>
                   <Font name="Coco Gothic Bold" size="12.0" />
                </font>
             </Button>
-            <AnchorPane layoutX="316.0" layoutY="96.0" opacity="0.6" prefHeight="287.0" prefWidth="287.0" style="-fx-background-color: #b60109;">
+            <AnchorPane layoutX="316.0" layoutY="96.0" opacity="0.6" prefHeight="287.0" prefWidth="287.0" style="-fx-background-color: #ffffff;">
                <children>
                   <GridPane layoutX="14.0" layoutY="10.0" prefHeight="264.0" prefWidth="258.0">
                     <columnConstraints>
@@ -56,73 +57,73 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="GOL SEGNATI" textFill="WHITE">
+                        <Label text="GOL SEGNATI" textFill="#b60109">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="GOL SUBITI" textFill="WHITE" GridPane.rowIndex="1">
+                        <Label text="GOL SUBITI" textFill="#b60109" GridPane.rowIndex="1">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="POSSESSO PALLA" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label text="POSSESSO PALLA" textFill="#b60109" GridPane.rowIndex="2">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="TIRI TOTALI" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label text="TIRI TOTALI" textFill="#b60109" GridPane.rowIndex="3">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="TIRI IN PORTA" textFill="WHITE" GridPane.rowIndex="4">
+                        <Label text="TIRI IN PORTA" textFill="#b60109" GridPane.rowIndex="4">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="FALLI SUBITI" textFill="WHITE" GridPane.rowIndex="6">
+                        <Label text="FALLI SUBITI" textFill="#b60109" GridPane.rowIndex="6">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="FALLI COMMESSI" textFill="WHITE" GridPane.rowIndex="5">
+                        <Label text="FALLI COMMESSI" textFill="#b60109" GridPane.rowIndex="5">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="PARATE" textFill="WHITE" GridPane.rowIndex="7">
+                        <Label text="PARATE" textFill="#b60109" GridPane.rowIndex="7">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="gol_segnati" textFill="WHITE" GridPane.columnIndex="1">
+                        <Label fx:id="gol_segnati" textFill="#b60109" GridPane.columnIndex="1">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="gol_subiti" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="gol_subiti" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="possesso_palla" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="possesso_palla" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="tiri_tot" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font></Label>
-                        <Label fx:id="tiri_porta" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label fx:id="falli_commessi" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label fx:id="falli_subiti" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label fx:id="parate" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                        <Label fx:id="tiri_tot" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font></Label>
-                        <Label text="MARCATORI" textFill="WHITE" GridPane.rowIndex="8">
+                        <Label fx:id="tiri_porta" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="falli_commessi" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="falli_subiti" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="parate" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font></Label>
+                        <Label text="MARCATORI" textFill="#b60109" GridPane.rowIndex="8">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>

@@ -16,45 +16,53 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="690.0" style="-fx-background-repeat: no-repeat;" styleClass="bodybg" stylesheets="@background.css">
          <children>
-            <ImageView layoutX="89.0" layoutY="-157.0">
+            <AnchorPane layoutX="59.0" layoutY="170.0" opacity="0.49" prefHeight="227.0" prefWidth="217.0" style="-fx-background-color: #ffffff;" />
+            <AnchorPane layoutX="337.0" layoutY="172.0" opacity="0.49" prefHeight="125.0" prefWidth="231.0" style="-fx-background-color: #ffffff;" />
+            <ImageView fitWidth="498.0" layoutX="89.0" layoutY="-157.0">
                <image>
                   <Image url="@../../Image/logo%20appRED-WHITE.png" />
                </image>
             </ImageView>
             <Separator fx:id="login" layoutX="5.0" layoutY="144.0" onDragDetected="#login" prefHeight="3.0" prefWidth="667.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="18.0" />
-            <TextField fx:id="username" layoutX="87.0" layoutY="210.0" opacity="0.95" style="-fx-background-color: #FFFFFF#FFFFFF;">
+            <TextField fx:id="username" layoutX="81.0" layoutY="210.0" opacity="0.6" style="-fx-background-color: #ffffff;">
                <effect>
                   <DropShadow />
                </effect>
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
             </TextField>
-            <PasswordField fx:id="password" layoutX="87.0" layoutY="285.0" opacity="0.95" style="-fx-background-color: #FFFFFF#FFFFFF #FFFFFF#FFFFFF;">
+            <PasswordField fx:id="password" layoutX="81.0" layoutY="285.0" opacity="0.6" style="-fx-background-color: #ffffff;">
                <effect>
                   <DropShadow />
                </effect>
+               <font>
+                  <Font name="Arial Black" size="13.0" />
+               </font>
             </PasswordField>
-            <Label layoutX="120.0" layoutY="178.0" text="Username" textFill="#fcf7f7" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="120.0">
+            <Label layoutX="119.0" layoutY="179.0" text="Username" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="119.0">
                <font>
                   <Font name="Coco Gothic Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="122.0" layoutY="250.0" style="-fx-alignment: #E0D9D7;" text="Password" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="122.0">
+            <Label layoutX="122.0" layoutY="250.0" style="-fx-alignment: #E0D9D7;" text="Password" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="122.0">
                <font>
                   <Font name="Coco Gothic Bold" size="19.0" />
                </font>
             </Label>
-            <Button fx:id="registrazione" layoutX="328.0" layoutY="210.0" mnemonicParsing="false" onAction="#registrazione" opacity="0.7" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: #b60109;" text="REGISTRATI" textFill="WHITE">
+            <Button fx:id="registrazione" layoutX="361.0" layoutY="229.0" mnemonicParsing="false" onAction="#registrazione" opacity="0.7" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: #b60109;" text="REGISTRATI" textFill="WHITE">
                <font>
-                  <Font name="Coco Gothic Bold" size="12.0" />
+                  <Font name="Coco Gothic Bold" size="14.0" />
                </font>
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button layoutX="74.0" layoutY="334.0" mnemonicParsing="false" onAction="#login" opacity="0.7" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #b60109;" text="LOGIN" textFill="WHITE">
+            <Button layoutX="78.0" layoutY="333.0" mnemonicParsing="false" onAction="#login" opacity="0.8" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #b60109;" text="LOGIN" textFill="WHITE">
                <font>
-                  <Font name="Coco Gothic Bold" size="18.0" />
+                  <Font name="Coco Gothic Bold" size="14.0" />
                </font></Button>
-            <Label layoutX="332.0" layoutY="179.0" text="Non sei registrato?" textFill="#f5efef">
+            <Label layoutX="368.0" layoutY="192.0" text="Non sei registrato?">
                <font>
                   <Font name="Coco Gothic Bold" size="18.0" />
                </font>

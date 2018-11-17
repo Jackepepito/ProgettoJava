@@ -21,6 +21,7 @@ import model.*;
 public class CalendarioController implements Initializable {
 
 	private Utente user;
+	
 	private Database db;
 
 	@FXML
@@ -72,7 +73,7 @@ public class CalendarioController implements Initializable {
 		ResultSet rs = db.query("Select avversario, girone from partita");
 		try {
 			while(rs.next()) {
-				partite.getItems().add(rs.getString("avversario")+ " "+ rs.getString("girone"));
+				partite.getItems().add(rs.getString("avversario")+ "-"+ rs.getString("girone"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -96,7 +97,7 @@ public class CalendarioController implements Initializable {
 	@FXML
 	public void scegli(ActionEvent event)
 	{
-		String[] value = partite.getValue().split(" ");
+		String[] value = partite.getValue().split("-");
 		System.out.println(partite.getValue());
 
 		ResultSet rs = db.query("Select * from partita where avversario = '" +value[0]+ "' and girone = '" +value[1]+ "' ");

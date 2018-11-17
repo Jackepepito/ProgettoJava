@@ -27,7 +27,7 @@
                   <Font name="Coco Gothic Bold" size="13.0" />
                </font>
             </Button>
-            <AnchorPane layoutX="99.0" layoutY="58.0" opacity="0.6" prefHeight="333.0" prefWidth="506.0" style="-fx-background-color: #b60109;">
+            <AnchorPane layoutX="99.0" layoutY="58.0" opacity="0.58" prefHeight="333.0" prefWidth="506.0" style="-fx-background-color: #b60109;">
                <children>
                   <GridPane layoutX="14.0" layoutY="3.0" prefHeight="321.0" prefWidth="328.0">
                     <columnConstraints>
@@ -92,7 +92,10 @@
                               <Font name="Coco Gothic Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="avversario" prefHeight="24.0" prefWidth="185.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="avversario" prefHeight="24.0" prefWidth="185.0" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Coco Gothic Bold" size="13.0" />
+                           </font></TextField>
                         <ComboBox fx:id="gol_segnati" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="GOL SUBITI" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
@@ -100,7 +103,10 @@
                            </font>
                         </Label>
                         <ComboBox fx:id="gol_subiti" prefHeight="27.0" prefWidth="69.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="marcatori" prefHeight="27.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="marcatori" prefHeight="27.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Coco Gothic Bold" size="13.0" />
+                           </font></TextField>
                         <ComboBox fx:id="possesso_palla" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <ComboBox fx:id="tiri_tot" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <ComboBox fx:id="tiri_porta" prefHeight="27.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
