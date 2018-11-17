@@ -41,8 +41,8 @@ public class CalendarioController implements Initializable {
 	@FXML
 	private Label gol_subiti;
 
-	@FXML
-	private ScrollPane marcatori;
+	//@FXML
+	//private Label marcatori;
 
 	@FXML
 	private Label possesso_palla;
