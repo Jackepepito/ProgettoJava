@@ -101,7 +101,7 @@
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="gol_segnati" text="2" textFill="WHITE" GridPane.columnIndex="1">
+                        <Label fx:id="gol_segnati" textFill="WHITE" GridPane.columnIndex="1">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
@@ -111,17 +111,26 @@
                               <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="marcatori" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="marcatori" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font></Label>
                         <Label fx:id="possesso_palla" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
+                              <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="tiri_tot" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label fx:id="tiri_porta" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label fx:id="falli_commessi" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label fx:id="falli_subiti" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <Label fx:id="parate" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label fx:id="tiri_tot" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font></Label>
+                        <Label fx:id="tiri_porta" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="falli_commessi" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="falli_subiti" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label fx:id="parate" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font name="Arial Black" size="13.0" />
+                           </font></Label>
                      </children>
                   </GridPane>
                </children>
