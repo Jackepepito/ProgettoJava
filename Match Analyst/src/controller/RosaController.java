@@ -21,6 +21,7 @@ import view.TestApp;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import model.*;
 
 
@@ -40,29 +41,7 @@ public class RosaController implements Initializable{
     @FXML
     private Label nomesquadra;
     
-    @FXML
-    private TableView<Giocatore> tableview;
-
-    @FXML
-    private TableColumn<Giocatore, Integer> colnumero;
-
-    @FXML
-    private TableColumn<Giocatore, String> colnome;
-
-    @FXML
-    private TableColumn<Giocatore, String> colcognome;
-
-    @FXML
-    private TableColumn<Giocatore, String> colruolo;
-
-    @FXML
-    private TableColumn<Giocatore, Integer> colgol;
-
-    @FXML
-    private TableColumn<Giocatore, Integer> colassist;
-
-    @FXML
-    private TableColumn<Giocatore, Integer> colgol_subiti;
+    
     
     @FXML
     private ComboBox<Integer> numeroinput;
@@ -79,12 +58,9 @@ public class RosaController implements Initializable{
     @FXML
     private ComboBox<Integer> golinput;
 
-    @FXML
-    private ComboBox<Integer> assistinput;
 
     @FXML
-    private ComboBox<Integer> golsubitiinput;
-
+    private GridPane griglia;
   
     
     @FXML//vedi se � da inserire su scenbuilder
@@ -134,22 +110,14 @@ public class RosaController implements Initializable{
 			try {
 				ResultSet rs;
 				rs = db.query("SELECT * FROM Giocatore U where U.numero = '" +numeroinput.getValue()+ "'");
-				Giocatore giocatore= new Giocatore(this.user);
-				giocatore.setGiocatoreNumero(numeroinput.getValue());
-				giocatore.setGiocatoreNome(nomeinput.getText());
-				giocatore.setGiocatoreCognome(cognomeinput.getText());
-				giocatore.setGiocatoreRuolo(ruoloinput.getText());
-				giocatore.setGiocatoreGol(golinput.getValue());
-				giocatore.setGiocatoreAssist(assistinput.getValue());
-				giocatore.setGiocatoreGolsubiti(golsubitiinput.getValue());
-				tableview.setItems(getGiocatore());;
-				nomeinput.clear();
+				
+				
 				if (rs.next()){
 					messaggio.setText("Numero non disponibile");
 				}
 				else {
 					db.update("INSERT INTO Giocatore VALUES ('" +numeroinput.getValue()+ "','" + nomeinput.getText()+ "','"
-						+cognomeinput.getText()+ "','" + ruoloinput.getText() + "','" +golinput.getValue()+ "','"  +assistinput.getValue()+ "','"  +golsubitiinput.getValue()+ "')");
+						+cognomeinput.getText()+ "','" + ruoloinput.getText() + "','" +golinput.getValue()+ "')");
 				
 				System.out.println("Ok");
 				}
@@ -165,12 +133,6 @@ public class RosaController implements Initializable{
 }
 
 
-public ObservableList <Giocatore> getGiocatore(){
-	ObservableList <Giocatore> giocatori= FXCollections.observableArrayList();
-	giocatori.add(new Giocatore(9,"x","y","p",9,8,2,this.user));
-	return giocatori;
-	
-}
 
 
 //aggiungere la tabella del database nella tableview
@@ -186,13 +148,7 @@ public ObservableList <Giocatore> getGiocatore(){
 		for(i=0; i<=150; ++i){
 			golinput.getItems().add(i);
 		}
-		for(i=0; i<=150; ++i){
-			assistinput.getItems().add(i);
-		}
-		for(i=0; i<=150; ++i){
-			golsubitiinput.getItems().add(i);
-		}
-		
+	
 		
 	}
 	}
