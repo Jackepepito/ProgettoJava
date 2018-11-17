@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -140,7 +142,8 @@ public class RosaController implements Initializable{
 				giocatore.setGiocatoreGol(golinput.getValue());
 				giocatore.setGiocatoreAssist(assistinput.getValue());
 				giocatore.setGiocatoreGolsubiti(golsubitiinput.getValue());
-				tableview.getItems().add(giocatore);
+				tableview.setItems(getGiocatore());;
+				nomeinput.clear();
 				if (rs.next()){
 					messaggio.setText("Numero non disponibile");
 				}
@@ -148,7 +151,7 @@ public class RosaController implements Initializable{
 					Database.update("INSERT INTO Giocatore VALUES ('" +numeroinput.getValue()+ "','" + nomeinput.getText()+ "','"
 						+cognomeinput.getText()+ "','" + ruoloinput.getText() + "','" +golinput.getValue()+ "','"  +assistinput.getValue()+ "','"  +golsubitiinput.getValue()+ "')");
 				
-				
+				System.out.println("Ok");
 				}
 			}	
 			
@@ -162,7 +165,12 @@ public class RosaController implements Initializable{
 }
 
 
-
+public ObservableList <Giocatore> getGiocatore(){
+	ObservableList <Giocatore> giocatori= FXCollections.observableArrayList();
+	giocatori.add(new Giocatore(9,"x","y","p",9,8,2,this.user));
+	return giocatori;
+	
+}
 
 
 //aggiungere la tabella del database nella tableview
