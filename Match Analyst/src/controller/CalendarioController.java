@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import view.TestApp;
 import model.*;
 
@@ -43,7 +42,7 @@ public class CalendarioController implements Initializable {
 	private Label gol_subiti;
 
 	@FXML
-	private Label marcatori;
+	private ScrollPane marcatori;
 
 	@FXML
 	private Label possesso_palla;

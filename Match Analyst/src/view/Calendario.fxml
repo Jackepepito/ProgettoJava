@@ -48,7 +48,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -66,37 +66,32 @@
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="MARCATORI" textFill="WHITE" GridPane.rowIndex="2">
+                        <Label text="POSSESSO PALLA" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="POSSESSO PALLA" textFill="WHITE" GridPane.rowIndex="3">
+                        <Label text="TIRI TOTALI" textFill="WHITE" GridPane.rowIndex="3">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="TIRI TOTALI" textFill="WHITE" GridPane.rowIndex="4">
+                        <Label text="TIRI IN PORTA" textFill="WHITE" GridPane.rowIndex="4">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="TIRI IN PORTA" textFill="WHITE" GridPane.rowIndex="5">
+                        <Label text="FALLI SUBITI" textFill="WHITE" GridPane.rowIndex="6">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="FALLI SUBITI" textFill="WHITE" GridPane.rowIndex="7">
+                        <Label text="FALLI COMMESSI" textFill="WHITE" GridPane.rowIndex="5">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </Label>
-                        <Label text="FALLI COMMESSI" textFill="WHITE" GridPane.rowIndex="6">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="PARATE" textFill="WHITE" GridPane.rowIndex="8">
+                        <Label text="PARATE" textFill="WHITE" GridPane.rowIndex="7">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
@@ -111,26 +106,32 @@
                               <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="marcatori" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font></Label>
-                        <Label fx:id="possesso_palla" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Label fx:id="possesso_palla" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font>
                         </Label>
-                        <Label fx:id="tiri_tot" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label fx:id="tiri_tot" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font></Label>
-                        <Label fx:id="tiri_porta" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label fx:id="falli_commessi" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label fx:id="falli_subiti" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <Label fx:id="parate" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <Label fx:id="tiri_porta" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="falli_commessi" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="falli_subiti" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="parate" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7">
                            <font>
                               <Font name="Arial Black" size="13.0" />
                            </font></Label>
+                        <Label text="MARCATORI" textFill="WHITE" GridPane.rowIndex="8">
+                           <font>
+                              <Font name="Coco Gothic Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane fx:id="marcatori" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                          </content>
+                        </ScrollPane>
                      </children>
                   </GridPane>
                </children>
