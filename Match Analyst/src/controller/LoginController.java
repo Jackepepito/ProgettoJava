@@ -38,18 +38,18 @@ public class LoginController {
     
     private Database db;
 
-public LoginController(Database db)
-{
-	this.db = db;
-}
+    public LoginController(Database db)
+    {
+    		this.db = db;
+    }
     
 @FXML
-void login(ActionEvent e) {
-	try {
-		ResultSet rs = Database.query("SELECT * from Utente where username = '" +username.getText()+ "' AND password = '" +String.valueOf(password.getText())+ "'");
-		if (rs.next()){
-			try {
-				HomePageController controller = new HomePageController(new Utente(rs.getString("username")), db);
+	void login(ActionEvent e) {
+		try {
+			ResultSet rs = db.query("SELECT * from Utente where username = '" +username.getText()+ "' AND password = '" +String.valueOf(password.getText())+ "'");
+			if (rs.next()){
+				try {
+				HomePageController controller = new HomePageController(new Utente(rs.getString("username"), db), db);
 				FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("HomePage.fxml"));
 				loader.setController(controller);
 				ScrollPane s = (ScrollPane) loader.load();
@@ -71,17 +71,17 @@ void login(ActionEvent e) {
 // Metodo che viene invocato quando l'utente effettua la registrazione all'applicazione
 
 @FXML
-void registrazione(ActionEvent event) {
-	try {
-		RegistrazioneController controller = new RegistrazioneController(db);
-		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Registrazione.fxml"));
-		loader.setController(controller);
-		ScrollPane s = (ScrollPane) loader.load();
-		Scene scene = new Scene(s);
-		TestApp.getStage().setScene(scene);
-	} catch (IOException e1) {
-		e1.printStackTrace();
-	}
+	void registrazione(ActionEvent event) {
+		try {
+			RegistrazioneController controller = new RegistrazioneController(db);
+			FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Registrazione.fxml"));
+			loader.setController(controller);
+			ScrollPane s = (ScrollPane) loader.load();
+			Scene scene = new Scene(s);
+			TestApp.getStage().setScene(scene);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 }
 
 

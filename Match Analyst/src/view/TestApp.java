@@ -43,7 +43,7 @@ public class TestApp extends Application {
 	         
 	         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 	             public void handle(WindowEvent we) {
-	                 Database.closeConnection();
+	                 db.closeConnection();
 	                 System.out.println("!!");
 	             }
 	         });

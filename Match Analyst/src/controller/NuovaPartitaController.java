@@ -58,6 +58,9 @@ public class NuovaPartitaController implements Initializable {
 
     @FXML
     private ComboBox<Integer> parate;
+    
+    @FXML
+    private ComboBox<String> girone;
 	
     @FXML
     private Label messaggio;
@@ -103,8 +106,11 @@ public class NuovaPartitaController implements Initializable {
 		for(i=0; i<=150; ++i){
 			parate.getItems().add(i);
 		}
+		
+		girone.getItems().add("A");
+		girone.getItems().add("R");
 	}
-	
+
 	//____
 	@FXML
     void indietro(ActionEvent event) {
@@ -124,7 +130,7 @@ public class NuovaPartitaController implements Initializable {
     void aggiungi(ActionEvent event) {
 
     	boolean cont = true;
-		if(avversario.getText().isEmpty() || gol_segnati.getItems().isEmpty() || gol_subiti.getItems().isEmpty() || marcatori.getText().isEmpty() || possesso_palla.getItems().isEmpty() 
+		if(avversario.getText().isEmpty() || girone.getItems().isEmpty() || gol_segnati.getItems().isEmpty() || gol_subiti.getItems().isEmpty() || marcatori.getText().isEmpty() || possesso_palla.getItems().isEmpty() 
 				|| tiri_tot.getItems().isEmpty() || tiri_porta.getItems().isEmpty() || falli_commessi.getItems().isEmpty() 
 				|| falli_subiti.getItems().isEmpty() || parate.getItems().isEmpty()){
 			messaggio.setText("Riempire i campi obbligatori");
@@ -133,7 +139,7 @@ public class NuovaPartitaController implements Initializable {
 		}
 		
 		if(cont) {
-			Database.update("INSERT INTO partita VALUES ('" +avversario.getText()+ "','" +gol_segnati.getValue()+ "','"
+			db.update("INSERT INTO partita VALUES ('" +avversario.getText()+ "', '" +girone.getValue()+ "','" +gol_segnati.getValue()+ "','"
 					+gol_subiti.getValue()+ "','" +marcatori.getText()+ "', '" +possesso_palla.getValue()+ "','"  
 					+tiri_tot.getValue()+ "', '" +tiri_porta.getValue()+"', '" +falli_commessi.getValue()+"','"
 					+falli_subiti.getValue()+ "', '"+parate.getValue()+"')");
