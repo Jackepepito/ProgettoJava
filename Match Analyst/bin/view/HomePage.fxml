@@ -24,7 +24,7 @@
                   <Font name="Coco Gothic Bold" size="48.0" />
                </font>
             </Label>
-            <ToolBar layoutX="37.0" layoutY="349.0" opacity="0.51" prefHeight="40.0" prefWidth="598.0" style="-fx-background-color: #ffffff;">
+            <ToolBar layoutX="37.0" layoutY="349.0" opacity="0.59" prefHeight="40.0" prefWidth="598.0" style="-fx-background-color: #ffffff;">
               <items>
                 <Button mnemonicParsing="false" onAction="#nuovaPartita" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #b60109;" text="NUOVA PARTITA" textFill="WHITE">
                      <font>
