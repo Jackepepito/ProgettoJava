@@ -31,7 +31,11 @@
                         <Font name="Coco Gothic Bold" size="12.0" />
                      </font>
                   </Button>
+<<<<<<< HEAD
                   <Button fx:id="statistiche" mnemonicParsing="false" onAction="#statistiche" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="STATISTICHE" textFill="WHITE">
+=======
+                  <Button mnemonicParsing="false" onAction="#statistiche" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="STATISTICHE" textFill="WHITE">
+>>>>>>> 678fa261afcbab6b8d3e69cc2f8bdbcbbef5f046
                      <font>
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font>

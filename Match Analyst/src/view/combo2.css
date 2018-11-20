@@ -1,0 +1,14 @@
+.combo-box .cell{
+    -fx-text-fill: blue;
+    -fx-font: 16px "Arial Black";
+}
+.my-list-cell {
+    -fx-text-fill: blue;
+    -fx-font: 16px "Arial Black";
+    /* No alternate highlighting */
+    -fx-background-color: #fffff;
+}
+
+.combo-box .cell:selected {
+    -fx-text-fill: red;
+}

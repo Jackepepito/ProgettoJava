@@ -110,7 +110,8 @@ public class HomePageController implements Initializable {
     	}
     }
     
-    @FXML
+
+     @FXML
     void logout(ActionEvent event) {
        	try {
        		LoginController controller = new LoginController(db);
