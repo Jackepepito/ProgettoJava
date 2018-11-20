@@ -13,8 +13,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
@@ -42,9 +45,13 @@ public class StatisticheController implements Initializable{
 
 	 
 	    @FXML
-	    private LineChart<?, ?> grafico1;
+	    private LineChart<String, Integer> grafico1;
 
-	    
+	    @FXML
+	    private CategoryAxis x;
+
+	    @FXML
+	    private NumberAxis y;
 	    
 	    public StatisticheController(Utente user,Database db)
 	    {
@@ -70,6 +77,27 @@ public class StatisticheController implements Initializable{
 	    @FXML
 	    void mostra(ActionEvent event) {
 //metodi per creare i grafici
+	    	
+	    	
+	    		System.out.println("ciao");
+	    		x.setLabel("Avversario");
+	    		y.setLabel("Gol");
+	    		XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
+	        	series1.setName("Gol Fatti");
+	        	ResultSet rs = db.query("SELECT gol_segnati,avversario FROM partita ");
+	        	try {
+	    			while (rs.next()){
+	    				System.out.println("ciao");
+	    				int sum = rs.getInt("gol_segnati");
+	    				String avversario = rs.getString("avversario");
+	    				series1.getData().add(new XYChart.Data<String, Integer>(avversario, sum));				
+	    			}
+	    		}  catch (SQLException e) {
+	    			e.printStackTrace();
+	    		}
+	        	grafico1.getData().add(series1);
+	            
+	    	
 	    }
 
 		@Override
