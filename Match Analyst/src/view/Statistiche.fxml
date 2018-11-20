@@ -40,7 +40,10 @@
                      <children>
                         <LineChart fx:id="grafico1" layoutY="-22.0" prefHeight="258.0" prefWidth="615.0" title="Gol  Fatti">
                           <xAxis>
-                            <CategoryAxis side="BOTTOM" fx:id="x" />
+                            <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x">
+                                 <tickLabelFont>
+                                    <Font size="5.0" />
+                                 </tickLabelFont></CategoryAxis>
                           </xAxis>
                           <yAxis>
                             <NumberAxis fx:id="y" minorTickCount="1" side="LEFT" tickLabelFill="WHITE" upperBound="10.0" />

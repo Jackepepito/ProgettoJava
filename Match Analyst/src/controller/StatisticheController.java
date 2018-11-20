@@ -78,8 +78,8 @@ public class StatisticheController implements Initializable{
 	    void mostra(ActionEvent event) {
 //metodi per creare i grafici
 	    	
-	    	
-	    		System.out.println("ciao");
+	    	    
+	            if(andamenti.getValue().equals("Fase offensiva")) {
 	    		x.setLabel("Avversario");
 	    		y.setLabel("Gol");
 	    		XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
@@ -87,7 +87,6 @@ public class StatisticheController implements Initializable{
 	        	ResultSet rs = db.query("SELECT gol_segnati,avversario FROM partita ");
 	        	try {
 	    			while (rs.next()){
-	    				System.out.println("ciao");
 	    				int sum = rs.getInt("gol_segnati");
 	    				String avversario = rs.getString("avversario");
 	    				series1.getData().add(new XYChart.Data<String, Integer>(avversario, sum));				
@@ -96,6 +95,8 @@ public class StatisticheController implements Initializable{
 	    			e.printStackTrace();
 	    		}
 	        	grafico1.getData().add(series1);
+	        	
+	            }
 	            
 	    	
 	    }
