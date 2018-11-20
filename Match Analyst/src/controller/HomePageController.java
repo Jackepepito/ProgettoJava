@@ -96,6 +96,19 @@ public class HomePageController implements Initializable {
     		e1.printStackTrace();
     	}
     }
+    @FXML
+    void statistiche(ActionEvent event) {
+    	try {
+    		StatisticheController controller = new StatisticheController(user, db);
+    		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Statistiche.fxml"));
+    		loader.setController(controller);
+    		ScrollPane s = (ScrollPane) loader.load();
+    		Scene scene = new Scene(s);
+    		TestApp.getStage().setScene(scene);
+    	} catch (IOException e1) {
+    		e1.printStackTrace();
+    	}
+    }
     
     @FXML
     void logout(ActionEvent event) {
