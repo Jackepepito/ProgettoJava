@@ -24,24 +24,24 @@
                   <Font name="Coco Gothic Bold" size="48.0" />
                </font>
             </Label>
-            <ToolBar layoutX="37.0" layoutY="349.0" prefHeight="40.0" prefWidth="598.0" style="-fx-background-color: #4682B4#4682B4;">
+            <ToolBar layoutX="37.0" layoutY="349.0" opacity="0.72" prefHeight="40.0" prefWidth="598.0" style="-fx-background-color: #ffffff;">
               <items>
-                <Button mnemonicParsing="false" onAction="#nuovaPartita" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #b60109;" text="NUOVA PARTITA" textFill="WHITE">
+                <Button mnemonicParsing="false" onAction="#nuovaPartita" opacity="0.89" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #b60109;" text="NUOVA PARTITA" textFill="WHITE">
                      <font>
                         <Font name="Coco Gothic Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#statistiche" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="STATISTICHE" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#statistiche" opacity="0.9" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="STATISTICHE" textFill="WHITE">
                      <font>
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#calendario" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="CALENDARIO" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#calendario" opacity="0.9" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="CALENDARIO" textFill="WHITE">
                      <font>
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#rosa" opacity="0.6" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="ROSA" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#rosa" opacity="0.9" prefHeight="27.0" prefWidth="143.0" style="-fx-background-color: #B60109;" text="ROSA" textFill="WHITE">
                      <font>
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font></Button>
