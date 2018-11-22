@@ -104,6 +104,9 @@ public class HomePageController implements Initializable {
     @FXML
     private Label messaggio;
     
+    @FXML
+    private Button add;
+    
     public HomePageController(Utente user, Database db)
     {
     		this.user = user;
@@ -121,6 +124,7 @@ public class HomePageController implements Initializable {
 		
 		nuova_partita.setVisible(false);
 		aggiungi.setVisible(false);
+		add.setVisible(false);
 		
 	int i;
 		
@@ -191,6 +195,7 @@ public class HomePageController implements Initializable {
     {
     nuova_partita.setVisible(true);
     aggiungi.setVisible(true);
+    add.setVisible(true);
     }
     
     @FXML
