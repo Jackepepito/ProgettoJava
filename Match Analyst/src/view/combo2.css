@@ -6,7 +6,7 @@
     -fx-text-fill: blue;
     -fx-font: 13px "Arial Black";
     /* No alternate highlighting */
-    -fx-background-color: #fffff;
+    -fx-background-color: #fffFff;
 }
 
 .combo-box .cell:selected {

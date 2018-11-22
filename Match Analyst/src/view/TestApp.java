@@ -37,10 +37,9 @@ public class TestApp extends Application {
 	    
 	         Scene scene = new Scene(loginLayout);
 	         stage.setScene(scene);
-	         stage.setMaxHeight(510);
-	         stage.setMaxWidth(700);
+	         //stage.setMaxHeight(13600);
+	         //stage.setMaxWidth(1000);
 	         stage.show();
-	         
 	         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 	             public void handle(WindowEvent we) {
 	                 db.closeConnection();

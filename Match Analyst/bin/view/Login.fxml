@@ -12,61 +12,58 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="690.0" style="-fx-background-repeat: no-repeat;" styleClass="bodybg" stylesheets="@background.css">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="1366.0" style="-fx-background-repeat: no-repeat;" styleClass="bodybg" stylesheets="@background.css">
          <children>
-            <AnchorPane layoutX="59.0" layoutY="170.0" opacity="0.49" prefHeight="227.0" prefWidth="217.0" style="-fx-background-color: #ffffff;" />
-            <AnchorPane layoutX="337.0" layoutY="172.0" opacity="0.49" prefHeight="125.0" prefWidth="231.0" style="-fx-background-color: #ffffff;" />
-            <ImageView fitWidth="498.0" layoutX="89.0" layoutY="-157.0">
+            <ImageView fitHeight="714.0" fitWidth="716.0" layoutX="343.0" layoutY="-257.0">
                <image>
                   <Image url="@../../Image/logo%20appRED-WHITE.png" />
                </image>
             </ImageView>
-            <Separator fx:id="login" layoutX="5.0" layoutY="144.0" onDragDetected="#login" prefHeight="3.0" prefWidth="667.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="18.0" />
-            <TextField fx:id="username" layoutX="80.0" layoutY="210.0" opacity="0.75" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: #ffffff;">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="password" layoutX="80.0" layoutY="285.0" opacity="0.74" prefHeight="32.0" prefWidth="170.0" style="-fx-background-color: #ffffff;">
-               <effect>
-                  <DropShadow />
-               </effect>
-               <font>
-                  <Font name="Arial Bold" size="13.0" />
-               </font>
-            </PasswordField>
-            <Label layoutX="119.0" layoutY="179.0" text="Username" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="119.0">
-               <font>
-                  <Font name="Coco Gothic Bold" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="122.0" layoutY="250.0" style="-fx-alignment: #E0D9D7;" text="Password" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="122.0">
-               <font>
-                  <Font name="Coco Gothic Bold" size="19.0" />
-               </font>
-            </Label>
-            <Button fx:id="registrazione" layoutX="361.0" layoutY="229.0" mnemonicParsing="false" onAction="#registrazione" opacity="0.7" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: #b60109;" text="REGISTRATI" textFill="WHITE">
-               <font>
-                  <Font name="Coco Gothic Bold" size="14.0" />
-               </font>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Button>
-            <Button layoutX="78.0" layoutY="333.0" mnemonicParsing="false" onAction="#login" opacity="0.8" prefHeight="44.0" prefWidth="176.0" style="-fx-background-color: #b60109;" text="LOGIN" textFill="WHITE">
-               <font>
-                  <Font name="Coco Gothic Bold" size="14.0" />
-               </font></Button>
-            <Label layoutX="368.0" layoutY="192.0" text="Non sei registrato?">
-               <font>
-                  <Font name="Coco Gothic Bold" size="18.0" />
-               </font>
-            </Label>
+            <AnchorPane layoutX="421.0" layoutY="218.0" opacity="0.59" prefHeight="453.0" prefWidth="564.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <Button layoutX="32.0" layoutY="342.0" mnemonicParsing="false" onAction="#login" prefHeight="68.0" prefWidth="215.0" style="-fx-background-color: #b60109;" text="LOGIN" textFill="WHITE">
+                     <font>
+                        <Font name="Coco Gothic Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <PasswordField fx:id="password" layoutX="132.0" layoutY="240.0" opacity="0.97" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ffffff;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Arial Bold" size="35.0" />
+                     </font>
+                  </PasswordField>
+                  <Label layoutX="197.0" layoutY="179.0" style="-fx-alignment: #E0D9D7;" text="Password" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="197.0">
+                     <font>
+                        <Font name="Coco Gothic Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="username" layoutX="132.0" layoutY="103.0" opacity="0.96" prefHeight="55.0" prefWidth="300.0" style="-fx-background-color: #ffffff;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Arial Bold" size="35.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="191.0" layoutY="41.0" text="Username" textOverrun="CENTER_WORD_ELLIPSIS" AnchorPane.leftAnchor="191.0">
+                     <font>
+                        <Font name="Coco Gothic Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="registrazione" layoutX="324.0" layoutY="341.0" mnemonicParsing="false" onAction="#registrazione" prefHeight="68.0" prefWidth="215.0" style="-fx-background-color: #b60109;" text="REGISTRATI" textFill="WHITE">
+                     <font>
+                        <Font name="Coco Gothic Bold" size="25.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children></AnchorPane>
+            <Separator fx:id="login" layoutX="12.0" layoutY="170.0" onDragDetected="#login" prefHeight="3.0" prefWidth="667.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" />
             <Label fx:id="errore" layoutX="268.0" layoutY="289.0" opacity="0.89" textFill="#b5020bda">
                <font>
                   <Font name="Coco Gothic Bold" size="16.0" />
