@@ -59,7 +59,7 @@ public class RosaController implements Initializable{
     private GridPane griglia;
   
     
-    @FXML//vedi se � da inserire su scenbuilder
+    @FXML
     private Label messaggio;
     
     private Utente user;

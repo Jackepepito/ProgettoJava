@@ -1,16 +1,27 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 // MATCH ANALYST
 
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -40,6 +51,10 @@ public class HomePageController implements Initializable {
 
     @FXML
     private GridPane nuova_partita;
+    
+    @FXML
+    private GridPane griglia;
+  
 
     @FXML
     private Label gol_segnati;
@@ -107,6 +122,21 @@ public class HomePageController implements Initializable {
     @FXML
     private Button add;
     
+
+    @FXML
+    private LineChart<String, Integer> grafico;
+
+ 
+
+    @FXML
+    private ComboBox<String> grafici;
+    
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+    
     public HomePageController(Utente user, Database db)
     {
     		this.user = user;
@@ -162,10 +192,53 @@ public class HomePageController implements Initializable {
 		
 		//girone.getItems().add("A");
 		//girone.getItems().add("R");
-	}
+		ObservableList<String> types = FXCollections.observableArrayList
+			    ( "Andamento generale", "Andamento in casa", "Andamento in trasferta","Fase offensiva","Fase difensiva" );
+
+			grafici.setItems( types );
+			
+			x.setLabel("Avversario");
+		    
+    		y.setLabel("Gol");
+    		XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
+        	series1.setName("Gol Fatti");
+        	ResultSet rs = db.query("SELECT gol_segnati,avversario FROM partita ");
+        	try {
+    			while (rs.next()){
+    				int sum = rs.getInt("gol_segnati");
+    				String avversario = rs.getString("avversario");
+    				series1.getData().add(new XYChart.Data<String, Integer>(avversario, sum));				
+    			}
+    		}  catch (SQLException e) {
+    			e.printStackTrace();
+    		}
+        	grafico.getData().add(series1);
+	
+             System.out.println("ciccio");
+             i=0;
+        	 ResultSet rs1 = db.query("Select gol_segnati,gol_subiti, avversario from partita");
+     		try {
+     			
+     			while(rs.next()) {
+     				
+     				Button port4 = new Button();
+     				port4.setPrefWidth(350);
+     	    		port4.setText((user.getSquadra().toString().concat("      ").concat(new Integer(rs1.getInt("gol_segnati")).toString()).concat("  ").concat(new Integer(rs1.getInt("gol_subiti")).toString()).concat("      ").concat(rs1.getString("avversario"))));
+     	    		GridPane.setConstraints(port4, 0, i);
+     	    		griglia.getChildren().add(port4);
+     	    		
+     				
+     	    		++i;}
+     		} catch (SQLException e) {
+     			e.printStackTrace();
+     				
+     	
+     	}
+    
+    }
     
 
-
+    
     @FXML
     void aggiungi_partita(ActionEvent event) {
 
