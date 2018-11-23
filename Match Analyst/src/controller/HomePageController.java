@@ -56,11 +56,8 @@ public class HomePageController implements Initializable {
     private GridPane griglia;
   
 
-    @FXML
-    private Label gol_segnati;
-
-    @FXML
-    private Label gol_subiti;
+  
+   
 
     @FXML
     private Label possesso_palla;
@@ -136,6 +133,10 @@ public class HomePageController implements Initializable {
 
     @FXML
     private NumberAxis y;
+    
+    @FXML
+    private GridPane visualizza_partita;
+    
     
     public HomePageController(Utente user, Database db)
     {
@@ -216,23 +217,49 @@ public class HomePageController implements Initializable {
 	
              System.out.println("ciccio");
              i=0;
-        	 ResultSet rs1 = db.query("Select gol_segnati,gol_subiti, avversario from partita");
+        	 ResultSet rs1 = db.query("Select avversario,gol_segnati, gol_subiti,possesso_palla from partita");
      		try {
      			
      			while(rs.next()) {
      				
      				Button port4 = new Button();
      				port4.setPrefWidth(350);
-     	    		port4.setText((user.getSquadra().toString().concat("      ").concat(new Integer(rs1.getInt("gol_segnati")).toString()).concat("  ").concat(new Integer(rs1.getInt("gol_subiti")).toString()).concat("      ").concat(rs1.getString("avversario"))));
+     				Label port3 = new Label();
+     	    		port3.setText((user.getSquadra().toString().concat("      ").concat(new Integer(rs1.getInt("gol_segnati")).toString()).concat("  ").concat(new Integer(rs1.getInt("gol_subiti")).toString()).concat("      ").concat(rs1.getString("avversario"))));
+     	    		port4.setText(port3.getText().toString());
      	    		GridPane.setConstraints(port4, 0, i);
      	    		griglia.getChildren().add(port4);
      	    		
+     				if(i==0) {
+     					
+     					Label avversario1 = new Label();
+     					avversario1.setText(rs1.getString("avversario").toString());
+     					GridPane.setConstraints(avversario1, 1, 0);
+     					visualizza_partita.getChildren().add(avversario1);
+     					
+     					Label golsegnati = new Label();
+     					golsegnati.setText(new Integer(rs1.getInt("gol_segnati")).toString());
+     					GridPane.setConstraints(golsegnati, 1, 1);
+     					visualizza_partita.getChildren().add(golsegnati);
+     					
      				
+     					Label golsubiti = new Label();
+     					golsegnati.setText(new Integer(rs1.getInt("gol_subiti")).toString());
+     					GridPane.setConstraints(golsubiti, 1, 2);
+     					visualizza_partita.getChildren().add(golsubiti);
+     					
+     					Label possessopalla = new Label();
+     					possessopalla.setText(new Integer(rs1.getInt("possesso_palla")).toString());
+     					GridPane.setConstraints(possessopalla, 1, 4);
+     					visualizza_partita.getChildren().add(possessopalla);
+     					
+     				}
      	    		++i;}
      		} catch (SQLException e) {
      			e.printStackTrace();
      				
      	
+     			
      	}
     
     }
