@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 // MATCH ANALYST
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,16 +18,20 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import view.TestApp;
 import model.*;
@@ -47,96 +52,35 @@ public class HomePageController implements Initializable {
     @FXML
     private Label nomecognome;
     
-    // ____
-
-    @FXML
-    private GridPane nuova_partita;
-    
     @FXML
     private GridPane griglia;
   
-
-  
-   
-
-    @FXML
-    private Label possesso_palla;
-
-    @FXML
-    private Label tiri_tot;
-
-    @FXML
-    private Label tiri_porta;
-
-    @FXML
-    private Label falli_commessi;
-
-    @FXML
-    private Label falli_subiti;
-
-    @FXML
-    private Label parate;
-    
-    @FXML
-    private Label avversario;
-
-    @FXML
-    private TextField avversario1;
-
-    @FXML
-    private ComboBox<Integer> gol_segnati1;
-
-    @FXML
-    private ComboBox<Integer> gol_subiti1;
-
-    @FXML
-    private TextField marcatori1;
-
-    @FXML
-    private ComboBox<Integer> possesso_palla1;
-
-    @FXML
-    private ComboBox<Integer> tiri_tot1;
-
-    @FXML
-    private ComboBox<Integer> tiri_porta1;
-
-    @FXML
-    private ComboBox<Integer> falli_commessi1;
-
-    @FXML
-    private ComboBox<Integer> falli_subiti1;
-
-    @FXML
-    private ComboBox<Integer> parate1;
-    
-    @FXML
-    private Button aggiungi;
     
     @FXML
     private Label messaggio;
     
-    @FXML
-    private Button add;
     
+    @FXML
+    private Button nuovapartita;
 
     @FXML
-    private LineChart<String, Integer> grafico;
+    private Button aggiungi;
 
+    @FXML
+    private Button eliminapartita;
  
-
     @FXML
-    private ComboBox<String> grafici;
-    
-    @FXML
-    private CategoryAxis x;
-
-    @FXML
-    private NumberAxis y;
+    private BarChart<String, Integer> barchart;
+   
     
     @FXML
     private GridPane visualizza_partita;
     
+    @FXML
+    private PieChart grafico_sinistra;
+
+    @FXML
+    private PieChart grafico_destra;
     
     public HomePageController(Utente user, Database db)
     {
@@ -153,150 +97,169 @@ public class HomePageController implements Initializable {
 		nomesquadra.setText(user.getSquadra());
 		nomecognome.setText(user.getNome() + " " + user.getCognome());
 		
-		nuova_partita.setVisible(false);
-		aggiungi.setVisible(false);
-		add.setVisible(false);
+		
 		
 	int i;
-		
-		for(i=0; i<=20; ++i){
-			gol_segnati1.getItems().add(i);
-		}
-		
-		for(i=0; i<=20; ++i){
-			gol_subiti1.getItems().add(i);
-		}
-		
-		for(i=0; i<=100; ++i){
-			possesso_palla1.getItems().add(i);
-		}
-		
-		for(i=0; i<=150; ++i){
-			tiri_tot1.getItems().add(i);
-		}
-		
-		for(i=0; i<=150; ++i){
-			tiri_porta1.getItems().add(i);
-		}
-		
-		for(i=0; i<=150; ++i){
-			falli_subiti1.getItems().add(i);
-		}
-		
-		for(i=0; i<=150; ++i){
-			falli_commessi1.getItems().add(i);
-		}
-		
-		for(i=0; i<=150; ++i){
-			parate1.getItems().add(i);
-		}
+	
 		
 		//girone.getItems().add("A");
 		//girone.getItems().add("R");
-		ObservableList<String> types = FXCollections.observableArrayList
-			    ( "Andamento generale", "Andamento in casa", "Andamento in trasferta","Fase offensiva","Fase difensiva" );
-
-			grafici.setItems( types );
-			
-			x.setLabel("Avversario");
-		    
-    		y.setLabel("Gol");
-    		XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
-        	series1.setName("Gol Fatti");
-        	ResultSet rs = db.query("SELECT gol_segnati,avversario FROM partita ");
-        	try {
-    			while (rs.next()){
-    				int sum = rs.getInt("gol_segnati");
-    				String avversario = rs.getString("avversario");
-    				series1.getData().add(new XYChart.Data<String, Integer>(avversario, sum));				
-    			}
-    		}  catch (SQLException e) {
-    			e.printStackTrace();
-    		}
-        	grafico.getData().add(series1);
+//		ObservableList<String> types = FXCollections.observableArrayList
+//			    ( "Andamento generale", "Andamento in casa", "Andamento in trasferta","Fase offensiva","Fase difensiva" );
+//
+//			grafici.setItems( types );
+//			
+//			x.setLabel("Avversario");
+//		    
+//    		y.setLabel("Gol");
+//    		XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
+//        	series1.setName("Gol Fatti");
+//        	ResultSet rs = db.query("SELECT gol_segnati,avversario FROM partita ");
+//        	try {
+//    			while (rs.next()){
+//    				int sum = rs.getInt("gol_segnati");
+//    				String avversario = rs.getString("avversario");
+//    				series1.getData().add(new XYChart.Data<String, Integer>(avversario, sum));				
+//    			}
+//    		}  catch (SQLException e) {
+//    			e.printStackTrace();
+//    		}
+//        	grafico.getData().add(series1);
 	
-             System.out.println("ciccio");
+	
              i=0;
-        	 ResultSet rs1 = db.query("Select avversario,gol_segnati, gol_subiti,possesso_palla from partita");
+        	 ResultSet rs1 = db.query("Select avversario,gol_segnati, gol_subiti,possesso_palla, falli_commessi, falli_subiti from partita");
      		try {
      			
-     			while(rs.next()) {
+     			while(rs1.next()) {
      				
-     				Button port4 = new Button();
-     				port4.setPrefWidth(350);
-     				Label port3 = new Label();
-     	    		port3.setText((user.getSquadra().toString().concat("      ").concat(new Integer(rs1.getInt("gol_segnati")).toString()).concat("  ").concat(new Integer(rs1.getInt("gol_subiti")).toString()).concat("      ").concat(rs1.getString("avversario"))));
-     	    		port4.setText(port3.getText().toString());
-     	    		GridPane.setConstraints(port4, 0, i);
-     	    		griglia.getChildren().add(port4);
+     				Button partita = new Button();
+     				partita.setPrefWidth(350);
+     				Label squadra = new Label();
+     				Label golsegnati = new Label();
+     				Label golsubiti= new Label();
+     				Label avversario = new Label();
+     				Label possessopalla = new Label();
+     				Label nome_completo = new Label();
+     				
+     				squadra.setText(user.getSquadra().toString());
+     				golsegnati.setText(new Integer(rs1.getInt("gol_segnati")).toString());
+     				golsubiti.setText(new Integer(rs1.getInt("gol_subiti")).toString());
+     				avversario.setText(rs1.getString("avversario"));
+     				possessopalla.setText(new Integer(rs1.getInt("possesso_palla")).toString());
+     	    		nome_completo.setText((squadra.getText().toString().concat("      ").concat(golsegnati.getText().toString()).concat("  ").concat(golsubiti.getText().toString()).concat("      ").concat(avversario.getText().toString())));
+     	            partita.setText(nome_completo.getText().toString());
+     	            
+     	            
+     	    		partita.setOnAction(event -> {
+     	            System.out.println("ciao chicco");
+     	            try {
+     	           Label fallicommessi = new Label();
+     	    		 fallicommessi.setText(new Integer(rs1.getInt("falli_commessi")).toString());
+    				    Label fallisubiti = new Label();
+    				  fallisubiti.setText(new Integer(rs1.getInt("falli_subiti")).toString());    
+     	    	        
+     	    	       
+     	    	        barchart.setTitle("Statistiche");       
+     	    	       
+     	    	 
+     	    	        XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
+     	    	        series1.setName("gol");      
+     	    	        series1.getData().add(new XYChart.Data<String,Integer>(avversario.getText().toString(), new Integer(golsubiti.getText().toString())));
+     	    	        series1.getData().add(new XYChart.Data<String,Integer>(user.getSquadra().toString(), new Integer(golsegnati.getText().toString())));
+     	    	            
+     	    	        
+     	    	        XYChart.Series<String,Integer> series2 = new XYChart.Series<String,Integer>();
+     	    	        series2.setName("falli");
+     	    	        series2.getData().add(new XYChart.Data<String,Integer>(avversario.getText().toString(), new Integer(fallisubiti.getText().toString())));
+  	    	        series2.getData().add(new XYChart.Data<String,Integer>(user.getSquadra().toString(), new Integer(fallicommessi.getText().toString())));
+  	    	            
+     	    	       
+     	    	        
+     	    	        barchart.getData().addAll(series1, series2);
+     	            }
+     	            catch (SQLException e) {
+     	            	e.printStackTrace(); 
+     	            }
+     	            });
+    		        GridPane.setConstraints(partita, 0, i);
+   	    		    griglia.getChildren().add(partita);
+   	    	
+   	    	    
+   	    		   
+   	    	  
+   	    	    
      	    		
      				if(i==0) {
      					
-     					Label avversario1 = new Label();
-     					avversario1.setText(rs1.getString("avversario").toString());
-     					GridPane.setConstraints(avversario1, 1, 0);
-     					visualizza_partita.getChildren().add(avversario1);
-     					
-     					Label golsegnati = new Label();
-     					golsegnati.setText(new Integer(rs1.getInt("gol_segnati")).toString());
-     					GridPane.setConstraints(golsegnati, 1, 1);
-     					visualizza_partita.getChildren().add(golsegnati);
-     					
-     				
-     					Label golsubiti = new Label();
-     					golsegnati.setText(new Integer(rs1.getInt("gol_subiti")).toString());
-     					GridPane.setConstraints(golsubiti, 1, 2);
-     					visualizza_partita.getChildren().add(golsubiti);
-     					
-     					Label possessopalla = new Label();
-     					possessopalla.setText(new Integer(rs1.getInt("possesso_palla")).toString());
-     					GridPane.setConstraints(possessopalla, 1, 4);
-     					visualizza_partita.getChildren().add(possessopalla);
-     					
+//     					Label avversario1 = new Label();
+//     					avversario1.setText(rs1.getString("avversario").toString());
+//     					GridPane.setConstraints(avversario1, 1, 0);
+//     					visualizza_partita.getChildren().add(avversario1);
+//     					
+//     					Label golsegnati = new Label();
+//     					golsegnati.setText(new Integer(rs1.getInt("gol_segnati")).toString());
+//     					GridPane.setConstraints(golsegnati, 1, 1);
+//     					visualizza_partita.getChildren().add(golsegnati);
+//     					
+//     				
+//     					Label golsubiti = new Label();
+//     					golsegnati.setText(new Integer(rs1.getInt("gol_subiti")).toString());
+//     					GridPane.setConstraints(golsubiti, 1, 2);
+//     					visualizza_partita.getChildren().add(golsubiti);
+//     					
+//     					Label possessopalla = new Label();
+//     					possessopalla.setText(new Integer(rs1.getInt("possesso_palla")).toString());
+//     					GridPane.setConstraints(possessopalla, 1, 4);
+//     					visualizza_partita.getChildren().add(possessopalla);
+//     					
      				}
      	    		++i;}
      		} catch (SQLException e) {
-     			e.printStackTrace();
-     				
-     	
-     			
-     	}
-    
+     			e.printStackTrace(); 
+     			}
+     		
+     		
+     		
+     		 
     }
     
 
     
+//    @FXML
+//    void aggiungi_partita(ActionEvent event) {
+//
+//    	boolean cont = true;
+//    	//manca girone
+//		if(avversario.getText().isEmpty() ||  gol_segnati1.getItems().isEmpty() || gol_subiti1.getItems().isEmpty() || marcatori1.getText().isEmpty() || possesso_palla1.getItems().isEmpty() 
+//				|| tiri_tot1.getItems().isEmpty() || tiri_porta1.getItems().isEmpty() || falli_commessi1.getItems().isEmpty() 
+//				|| falli_subiti1.getItems().isEmpty() || parate1.getItems().isEmpty()){
+//			messaggio.setText("Riempire i campi obbligatori");
+//			System.out.println("Riempire i campi obbligatori");
+//			cont = false;
+//		}
+//		
+//		if(cont) {
+//			db.update("INSERT INTO partita VALUES ('" +avversario.getText()+ "', '" +gol_segnati1.getValue()+ "','"
+//					+gol_subiti1.getValue()+ "','" +marcatori1.getText()+ "', '" +possesso_palla1.getValue()+ "','"  
+//					+tiri_tot1.getValue()+ "', '" +tiri_porta1.getValue()+"', '" +falli_commessi1.getValue()+"','"
+//					+falli_subiti1.getValue()+ "', '"+parate1.getValue()+"')");
+//			System.out.println("Inserimento avvenuto con successo!");
+//			
+//	}
+//
+//    }
+    
+   
     @FXML
-    void aggiungi_partita(ActionEvent event) {
-
-    	boolean cont = true;
-    	//manca girone
-		if(avversario.getText().isEmpty() ||  gol_segnati1.getItems().isEmpty() || gol_subiti1.getItems().isEmpty() || marcatori1.getText().isEmpty() || possesso_palla1.getItems().isEmpty() 
-				|| tiri_tot1.getItems().isEmpty() || tiri_porta1.getItems().isEmpty() || falli_commessi1.getItems().isEmpty() 
-				|| falli_subiti1.getItems().isEmpty() || parate1.getItems().isEmpty()){
-			messaggio.setText("Riempire i campi obbligatori");
-			System.out.println("Riempire i campi obbligatori");
-			cont = false;
-		}
-		
-		if(cont) {
-			db.update("INSERT INTO partita VALUES ('" +avversario.getText()+ "', '" +gol_segnati1.getValue()+ "','"
-					+gol_subiti1.getValue()+ "','" +marcatori1.getText()+ "', '" +possesso_palla1.getValue()+ "','"  
-					+tiri_tot1.getValue()+ "', '" +tiri_porta1.getValue()+"', '" +falli_commessi1.getValue()+"','"
-					+falli_subiti1.getValue()+ "', '"+parate1.getValue()+"')");
-			System.out.println("Inserimento avvenuto con successo!");
-			
-	}
-
-    }
-
-    @FXML
-    void combo_visibile(ActionEvent event)
-    {
-    nuova_partita.setVisible(true);
+   void combo_visibile(ActionEvent event)
+   {
+    
     aggiungi.setVisible(true);
-    add.setVisible(true);
+    
     }
+    
+    
     
     @FXML
     void aggiungi_marcatore(ActionEvent event)
@@ -318,19 +281,7 @@ public class HomePageController implements Initializable {
     	}
     }
     
-    @FXML
-    void calendario(ActionEvent event) {
-    	try {
-    		CalendarioController controller = new CalendarioController(user, db);
-    		FXMLLoader loader = new FXMLLoader(TestApp.class.getResource("Calendario.fxml"));
-    		loader.setController(controller);
-    		ScrollPane s = (ScrollPane) loader.load();
-    		Scene scene = new Scene(s);
-    		TestApp.getStage().setScene(scene);
-    	} catch (IOException e1) {
-    		e1.printStackTrace();
-    	}
-    }
+   
     @FXML
     void statistiche(ActionEvent event) {
     	try {

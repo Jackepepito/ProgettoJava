@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -39,7 +38,7 @@
                   <Font name="Coco Gothic Bold" size="20.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="56.0" layoutY="119.0" opacity="0.6" prefHeight="254.0" prefWidth="385.0" style="-fx-background-color: #b60109;">
+            <ScrollPane layoutX="393.0" layoutY="382.0" opacity="0.6" prefHeight="254.0" prefWidth="581.0" style="-fx-background-color: #b60109;">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" opacity="0.68" prefHeight="264.0" prefWidth="561.0" style="-fx-background-color: #b60109;">
                      <children>
@@ -61,177 +60,9 @@
                      </children></AnchorPane>
               </content>
             </ScrollPane>
-            <AnchorPane layoutX="793.0" layoutY="120.0" opacity="0.6" prefHeight="350.0" prefWidth="504.0" style="-fx-background-color: #B60109;">
-               <children>
-                  <GridPane fx:id="visualizza_partita" layoutX="13.0" layoutY="5.0" prefHeight="325.0" prefWidth="242.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="7.0" prefWidth="40.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label text="GOL SEGNATI" textFill="WHITE" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="GOL SUBITI" textFill="WHITE" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="MARCATORI" textFill="WHITE" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="POSSESSO PALLA" textFill="WHITE" GridPane.rowIndex="4">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="TIRI TOTALI" textFill="WHITE" GridPane.rowIndex="5">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="FALLI COMMESSI" textFill="WHITE" GridPane.rowIndex="7">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="TIRI IN PORTA" textFill="WHITE" GridPane.rowIndex="6">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="FALLI SUBITI" textFill="WHITE" GridPane.rowIndex="8">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label GridPane.columnIndex="1" />
-                        <Label fx:id="gol_segnati" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="gol_subiti" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="possesso_palla" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="tiri_tot" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="tiri_porta" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="falli_commessi" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="falli_subiti" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="parate" textFill="#b60109" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                           <font>
-                              <Font name="Arial Black" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="PARATE" textFill="WHITE" GridPane.rowIndex="9">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="AVVERSARIO" textFill="WHITE">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font></Label>
-                     </children>
-                  </GridPane>
-                  <GridPane fx:id="nuova_partita" layoutX="181.0" layoutY="7.0" prefHeight="327.0" prefWidth="324.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.9635009765625" minWidth="10.0" prefWidth="221.8753662109375" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.043212890625" minWidth="10.0" prefWidth="102.1246337890625" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <TextField fx:id="avversario1" opacity="0.9" prefHeight="30.0" prefWidth="221.0">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </TextField>
-                        <ComboBox fx:id="gol_segnati1" prefHeight="30.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="1" />
-                        <ComboBox fx:id="gol_subiti1" prefHeight="30.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="2" />
-                        <TextField fx:id="marcatori" prefHeight="28.0" prefWidth="233.0" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </TextField>
-                        <ComboBox fx:id="possesso_palla1" prefHeight="30.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="4" />
-                        <ComboBox fx:id="tiri_tot1" prefHeight="30.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="5" />
-                        <ComboBox fx:id="tiri_porta1" prefHeight="30.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="6" />
-                        <ComboBox fx:id="falli_commessi1" prefHeight="30.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="7" />
-                        <ComboBox fx:id="falli_subiti1" prefHeight="30.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="8" />
-                        <ComboBox fx:id="parate1" prefHeight="30.0" prefWidth="69.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.rowIndex="9" />
-                        <ComboBox prefHeight="27.0" prefWidth="71.0" GridPane.columnIndex="1" />
-                        <Button fx:id="add" mnemonicParsing="false" onAction="#aggiungi_marcatore" prefHeight="27.0" prefWidth="51.0" text="ADD" textFill="#900000" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Coco Gothic Bold" size="13.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </GridPane>
-               </children>
-            </AnchorPane>
             <Button layoutX="1036.0" layoutY="626.0" mnemonicParsing="false" onAction="#rosa" opacity="0.6" prefHeight="44.0" prefWidth="212.0" style="-fx-background-color: #B60109;" text="ROSA" textFill="WHITE">
                <font>
                   <Font name="Coco Gothic Bold" size="23.0" />
-               </font>
-            </Button>
-            <Button layoutX="663.0" layoutY="119.0" mnemonicParsing="false" onAction="#combo_visibile" opacity="0.9" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #3cb371#3cb371;" text="NUOVA PARTITA" textFill="WHITE">
-               <font>
-                  <Font name="Coco Gothic Bold" size="11.0" />
-               </font>
-            </Button>
-            <Button fx:id="aggiungi" layoutX="1203.0" layoutY="476.0" mnemonicParsing="false" onAction="#aggiungi_partita" opacity="0.9" prefHeight="43.0" prefWidth="91.0" style="-fx-background-color: #3cb371#3cb371;" text="AGGIUNGI" textFill="WHITE">
-               <font>
-                  <Font name="Coco Gothic Bold" size="14.0" />
                </font>
             </Button>
             <Label layoutX="905.0" layoutY="464.0" textFill="#ae0000">
@@ -239,25 +70,16 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <Button layoutX="664.0" layoutY="181.0" mnemonicParsing="false" opacity="0.9" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #ffa500#ffa500;" text="MODIFICA PARTITA" textFill="WHITE">
-               <font>
-                  <Font name="Coco Gothic Bold" size="10.0" />
-               </font>
-            </Button>
-            <Button layoutX="663.0" layoutY="246.0" mnemonicParsing="false" opacity="0.9" prefHeight="44.0" prefWidth="117.0" style="-fx-background-color: #ff0000#ff0000;" text="ELIMINA PARTITA" textFill="WHITE">
-               <font>
-                  <Font name="Coco Gothic Bold" size="11.0" />
-               </font>
-            </Button>
-            <LineChart fx:id="grafico" layoutX="20.0" layoutY="373.0" prefHeight="320.0" prefWidth="604.0">
+            <PieChart fx:id="grafico_sinistra" layoutX="316.0" layoutY="115.0" prefHeight="178.0" prefWidth="194.0" />
+            <PieChart fx:id="grafico_destra" layoutX="793.0" layoutY="115.0" prefHeight="178.0" prefWidth="194.0" />
+            <BarChart fx:id="barchart" layoutX="514.0" layoutY="124.0" prefHeight="236.0" prefWidth="316.0">
               <xAxis>
-                <CategoryAxis side="BOTTOM" fx:id="x" />
+                <CategoryAxis side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis fx:id="y" side="LEFT" />
+                <NumberAxis side="LEFT" />
               </yAxis>
-            </LineChart>
-            <ComboBox fx:id="grafici" layoutX="632.0" layoutY="389.0" prefWidth="150.0" />
+            </BarChart>
          </children></AnchorPane>
   </content>
 </ScrollPane>
