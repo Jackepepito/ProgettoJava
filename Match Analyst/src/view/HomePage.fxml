@@ -69,6 +69,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </BarChart>
+            <Button fx:id="statistiche" layoutX="140.0" layoutY="370.0" mnemonicParsing="false" onAction="#statistiche" text="Button" />
          </children></AnchorPane>
   </content>
 </ScrollPane>
