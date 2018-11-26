@@ -3,59 +3,70 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <content>
-      <AnchorPane prefHeight="582.0" prefWidth="690.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="1366.0" styleClass="bodybg" stylesheets="@background.css">
          <children>
-          <AnchorPane layoutY="-3.0" minHeight="0.0" minWidth="0.0" prefHeight="422.0" prefWidth="690.0" styleClass="bodybg" stylesheets="@background.css">
+            <ImageView fitHeight="507.0" fitWidth="509.0" layoutX="854.0" layoutY="-184.0">
+               <image>
+                  <Image url="@../../Image/logo%20appRED-WHITE.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="25.0" layoutY="27.0" mnemonicParsing="false" onAction="#indietro" opacity="0.7" prefHeight="40.0" prefWidth="84.0" style="-fx-background-color: #b60109;" text="Indietro" textFill="WHITE">
+               <font>
+                  <Font name="Coco Gothic Bold" size="16.0" />
+               </font>
+            </Button>
+            <ComboBox fx:id="sceltaGrafico" layoutX="19.0" layoutY="152.0" opacity="0.7" prefHeight="39.0" prefWidth="181.0" style="-fx-background-color: #b60109;" />
+            <Button layoutX="211.0" layoutY="152.0" mnemonicParsing="false" onAction="#mostra" opacity="0.7" prefHeight="40.0" prefWidth="91.0" style="-fx-background-color: #B60109;" text="MOSTRA" textFill="WHITE">
+               <font>
+                  <Font name="Coco Gothic Bold" size="13.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="211.0" layoutY="215.0" opacity="0.7" prefHeight="409.0" prefWidth="578.0" style="-fx-background-color: #b60109;">
                <children>
-                  <AnchorPane layoutX="439.0" layoutY="97.0" opacity="0.63" prefHeight="36.0" prefWidth="207.0" style="-fx-background-color: #b60109;" />
-                  <ImageView fitHeight="200.0" fitWidth="199.0" layoutX="477.0" layoutY="-67.0">
-                     <image>
-                        <Image url="@../../Image/logo%20appRED-WHITE.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="indietro" layoutX="45.0" layoutY="18.0" mnemonicParsing="false" onAction="#indietro" opacity="0.6" style="-fx-background-color: #b60109;" text="Indietro" textFill="WHITE">
-                     <font>
-                        <Font name="Coco Gothic Bold" size="13.0" />
-                     </font>
-                  </Button>
-                  <ComboBox fx:id="andamenti" layoutX="38.0" layoutY="97.0" opacity="0.62" prefHeight="35.0" prefWidth="222.0" promptText="CIAO" style="-fx-background-color: #b60109;" />
-                  <Label layoutX="496.0" layoutY="103.0" opacity="0.86" text="STATISTICHE" textFill="WHITE">
-                     <font>
-                        <Font name="Coco Gothic Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <AnchorPane layoutX="24.0" layoutY="183.0" opacity="0.6" prefHeight="506.0" prefWidth="622.0" style="-fx-background-color: #b60109;">
-                     <children>
-                        <LineChart fx:id="grafico1" layoutY="-22.0" prefHeight="258.0" prefWidth="615.0" title="Gol  Fatti">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" tickLabelFill="WHITE" fx:id="x">
-                                 <tickLabelFont>
-                                    <Font size="5.0" />
-                                 </tickLabelFont></CategoryAxis>
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis fx:id="y" minorTickCount="1" side="LEFT" tickLabelFill="WHITE" upperBound="10.0" />
-                          </yAxis>
-                        </LineChart>
-                        <PieChart fx:id="grafico2" layoutX="71.0" layoutY="247.0" prefHeight="248.0" prefWidth="295.0" />
-                     </children>
-                  </AnchorPane>
-                  <Button fx:id="mostra" layoutX="281.0" layoutY="99.0" mnemonicParsing="false" onAction="#mostra" prefHeight="31.0" prefWidth="54.0" text="Mostra" />
+                  <LineChart fx:id="graficoGolSegnati" layoutX="21.0" layoutY="2.0" prefHeight="400.0" prefWidth="500.0">
+                    <xAxis>
+                      <CategoryAxis prefWidth="459.0" side="BOTTOM" tickLabelFill="WHITE" fx:id="x1">
+                           <tickLabelFont>
+                              <Font name="Arial Black" size="9.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="y1" prefHeight="356.0" prefWidth="31.0" side="LEFT" tickLabelFill="WHITE">
+                           <tickLabelFont>
+                              <Font name="Arial Black" size="9.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                    </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="graficoGolSubiti" layoutX="21.0" layoutY="2.0" prefHeight="400.0" prefWidth="500.0">
+                     <xAxis>
+                        <CategoryAxis prefWidth="459.0" side="BOTTOM" tickLabelFill="WHITE" fx:id="x2">
+                           <tickLabelFont>
+                              <Font name="Arial Black" size="9.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="y2" prefHeight="356.0" prefWidth="31.0" side="LEFT" tickLabelFill="WHITE">
+                           <tickLabelFont>
+                              <Font name="Arial Black" size="9.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                     </yAxis>
+                  </LineChart>
                </children>
             </AnchorPane>
-         </children>
-      </AnchorPane>
+         </children></AnchorPane>
   </content>
 </ScrollPane>
