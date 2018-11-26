@@ -279,22 +279,11 @@ public class HomePageController implements Initializable {
 //	}
 //
 //    }
-    
-   
+
     @FXML
-   void combo_visibile(ActionEvent event)
-   {
-    
-    aggiungi.setVisible(true);
-    
-    }
-    
-    
-    
-    @FXML
-    void aggiungi_marcatore(ActionEvent event)
+    void aggiungiMarcatore(ActionEvent event)
     {
-    		
+  
     }
     
     @FXML
