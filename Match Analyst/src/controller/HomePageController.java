@@ -26,6 +26,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Data;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -33,6 +35,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import view.TestApp;
 import model.*;
 import javafx.fxml.Initializable;
@@ -59,6 +62,8 @@ public class HomePageController implements Initializable {
     @FXML
     private Label messaggio;
     
+    @FXML
+    private BarChart<String,Integer> barchart;
     
     @FXML
     private Button nuovapartita;
@@ -69,9 +74,7 @@ public class HomePageController implements Initializable {
     @FXML
     private Button eliminapartita;
  
-    @FXML
-    private BarChart<String, Integer> barchart;
-   
+    
     
     @FXML
     private GridPane visualizza_partita;
@@ -96,10 +99,15 @@ public class HomePageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		nomesquadra.setText(user.getSquadra());
 		nomecognome.setText(user.getNome() + " " + user.getCognome());
+
+         XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
+         series1.setName("gol");   
 		
+         XYChart.Series<String,Integer> series2 = new XYChart.Series<String,Integer>();
+	        series2.setName("falli");    
+	       
 		
-		
-	int i;
+	     int i;
 	
 		
 		//girone.getItems().add("A");
@@ -134,14 +142,19 @@ public class HomePageController implements Initializable {
      			while(rs1.next()) {
      				
      				Button partita = new Button();
-     				partita.setPrefWidth(350);
+     				partita.setMinWidth(550);
+     				
      				Label squadra = new Label();
      				Label golsegnati = new Label();
      				Label golsubiti= new Label();
      				Label avversario = new Label();
      				Label possessopalla = new Label();
      				Label nome_completo = new Label();
+     				Label fallicommessi= new Label();
+     				Label fallisubiti= new Label();
      				
+     				fallicommessi.setText(new Integer(rs1.getInt("falli_commessi")).toString());
+     				fallisubiti.setText(new Integer(rs1.getInt("falli_subiti")).toString());
      				squadra.setText(user.getSquadra().toString());
      				golsegnati.setText(new Integer(rs1.getInt("gol_segnati")).toString());
      				golsubiti.setText(new Integer(rs1.getInt("gol_subiti")).toString());
@@ -149,41 +162,58 @@ public class HomePageController implements Initializable {
      				possessopalla.setText(new Integer(rs1.getInt("possesso_palla")).toString());
      	    		nome_completo.setText((squadra.getText().toString().concat("      ").concat(golsegnati.getText().toString()).concat("  ").concat(golsubiti.getText().toString()).concat("      ").concat(avversario.getText().toString())));
      	            partita.setText(nome_completo.getText().toString());
+     	         
      	            
      	            
-     	    		partita.setOnAction(event -> {
-     	            System.out.println("ciao chicco");
-     	            try {
-     	           Label fallicommessi = new Label();
-     	    		 fallicommessi.setText(new Integer(rs1.getInt("falli_commessi")).toString());
-    				    Label fallisubiti = new Label();
-    				  fallisubiti.setText(new Integer(rs1.getInt("falli_subiti")).toString());    
-     	    	        
-     	    	       
-     	    	        barchart.setTitle("Statistiche");       
-     	    	       
+     	            //inizializzo il grafico centrale
+     	           if(i==0) {
+     	           barchart.setTitle("Statistiche");  
+     	            
+  	    	        series1.getData().add(new XYChart.Data<String,Integer>(avversario.getText().toString(), new Integer(golsubiti.getText().toString())));
+	    	        series1.getData().add(new XYChart.Data<String,Integer>(user.getSquadra().toString(), new Integer(golsegnati.getText().toString())));
+	    	            
+	    	        
+	    	      
+	    	        series2.getData().add(new XYChart.Data<String,Integer>(avversario.getText().toString(), new Integer(fallisubiti.getText().toString())));
+	    	        series2.getData().add(new XYChart.Data<String,Integer>(user.getSquadra().toString(), new Integer(fallicommessi.getText().toString())));
+	    	            
+	    	       
+	    	        
+	    	        barchart.getData().addAll(series1, series2);
+     	           }
+     	           
+     	           
+     	           //quando clicco sul bottone
+     	    	partita.setOnAction(event -> {
+     	                //prima cancello
+     	    			series1.getData().clear();
+     	    			series2.getData().clear();
+     	    			
+     	    			barchart.setTitle("Statistiche");       
+      	    	       
      	    	 
-     	    	        XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
-     	    	        series1.setName("gol");      
+     	    	        //poi inserisco i nuovi dati
      	    	        series1.getData().add(new XYChart.Data<String,Integer>(avversario.getText().toString(), new Integer(golsubiti.getText().toString())));
      	    	        series1.getData().add(new XYChart.Data<String,Integer>(user.getSquadra().toString(), new Integer(golsegnati.getText().toString())));
      	    	            
      	    	        
-     	    	        XYChart.Series<String,Integer> series2 = new XYChart.Series<String,Integer>();
-     	    	        series2.setName("falli");
+     	    	        
      	    	        series2.getData().add(new XYChart.Data<String,Integer>(avversario.getText().toString(), new Integer(fallisubiti.getText().toString())));
   	    	        series2.getData().add(new XYChart.Data<String,Integer>(user.getSquadra().toString(), new Integer(fallicommessi.getText().toString())));
   	    	            
      	    	       
-     	    	        
+     	    	        //aggiungo
      	    	        barchart.getData().addAll(series1, series2);
-     	            }
-     	            catch (SQLException e) {
-     	            	e.printStackTrace(); 
-     	            }
+     	    	        
+     	    	     
+     	          
      	            });
+     	    		
+     	    	    RowConstraints row = new RowConstraints(40);
+     	    	    griglia.getRowConstraints().add(row);
     		        GridPane.setConstraints(partita, 0, i);
    	    		    griglia.getChildren().add(partita);
+   	                griglia.getRowConstraints().add(row);
    	    	
    	    	    
    	    		   
