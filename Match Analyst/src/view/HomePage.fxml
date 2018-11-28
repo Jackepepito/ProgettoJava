@@ -155,27 +155,27 @@
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </TextField>
-                        <ComboBox fx:id="gol_segnati" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="golSegnati" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="GOL SUBITI" textFill="WHITE" GridPane.rowIndex="2">
                            <font>
                               <Font name="Coco Gothic Bold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="gol_subiti" prefHeight="27.0" prefWidth="69.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="golSubiti" prefHeight="27.0" prefWidth="69.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <TextField fx:id="marcatori" prefHeight="27.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <font>
                               <Font name="Coco Gothic Bold" size="13.0" />
                            </font>
                         </TextField>
-                        <ComboBox fx:id="possesso_palla" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <ComboBox fx:id="tiri_tot" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <ComboBox fx:id="tiri_porta" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <ComboBox fx:id="falli_commessi" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <ComboBox fx:id="falli_subiti" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <ComboBox fx:id="possessoPalla" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="tiriTot" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="tiriPorta" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <ComboBox fx:id="falliCommessi" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <ComboBox fx:id="falliSubiti" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                         <ComboBox fx:id="parate" prefHeight="27.0" prefWidth="70.0" styleClass="my-list-cell" stylesheets="@combo2.css" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                      </children>
                   </GridPane>
-                  <Button layoutX="354.0" layoutY="100.0" mnemonicParsing="false" onAction="#aggiungiMarcatore" prefHeight="30.0" prefWidth="49.0" text="ADD" textFill="#b60109">
+                  <Button layoutX="421.0" layoutY="101.0" mnemonicParsing="false" onAction="#aggiungiMarcatore" prefHeight="30.0" prefWidth="49.0" text="ADD" textFill="#b60109">
                      <font>
                         <Font name="Coco Gothic Bold" size="12.0" />
                      </font>
@@ -185,8 +185,8 @@
                         <Font name="Coco Gothic Bold" size="12.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="girone" layoutX="347.0" layoutY="6.0" prefHeight="30.0" prefWidth="64.0" styleClass="my-list-cell" stylesheets="@combo2.css" />
-                  <Button layoutX="341.0" layoutY="276.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #00fa9a#00fa9a;" text="NUOVA PARTITA">
+                  <ComboBox fx:id="casaTrasf" layoutX="347.0" layoutY="6.0" prefHeight="30.0" prefWidth="85.0" styleClass="my-list-cell" stylesheets="@combo2.css" />
+                  <Button layoutX="341.0" layoutY="276.0" mnemonicParsing="false" onAction="#aggiungiPartita" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #00fa9a#00fa9a;" text="NUOVA PARTITA">
                      <font>
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font>
@@ -196,6 +196,9 @@
                         <Font name="Coco Gothic Bold" size="9.0" />
                      </font>
                   </Label>
+                  <ComboBox fx:id="gol" layoutX="347.0" layoutY="102.0" prefHeight="28.0" prefWidth="56.0" styleClass="my-list-cell" stylesheets="@combo2.css" />
+                  <Label fx:id="messaggio" layoutX="358.0" layoutY="234.0" textFill="WHITE" />
+                  <Label fx:id="messaggioGol" layoutX="347.0" layoutY="155.0" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children></AnchorPane>
