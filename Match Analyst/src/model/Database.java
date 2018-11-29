@@ -45,9 +45,9 @@ public class Database {
         st.executeUpdate("CREATE TABLE IF NOT EXISTS utente (username varchar(25) PRIMARY KEY, password varchar(30), "
         		+ "nome varchar(25), cognome varchar(25), squadra varchar(25), stagione varchar(25))");
         st.executeUpdate("CREATE TABLE IF NOT EXISTS giocatore (numero INTEGER primary key,nome VARCHAR(50), ruolo varchar(20), gol INTEGER, assist INTEGER,golsubiti INTEGER)");
-        st.executeUpdate("CREATE TABLE IF NOT EXISTS partita (avversario VARCHAR(50), casa_trasferta varchar(20), gol_segnati INTEGER, gol_subiti INTEGER, marcatori varchar(50), "
+        st.executeUpdate("CREATE TABLE IF NOT EXISTS partita (avversario VARCHAR(50), casa_trasferta varchar(20), gol_segnati INTEGER, gol_subiti INTEGER, "
         		+ "possesso_palla INTEGER, tiri_tot INTEGER ,tiri_porta INTEGER, falli_commessi INTEGER, falli_subiti INTEGER, parate INTEGER, PRIMARY KEY (avversario, casa_trasferta))");
-        st.executeUpdate("CREATE TABLE IF NOT EXISTS marcatore (partita varchar(50) references partita(avversario), casa_trasferta varchar(20) references partita(casa_trasferta), giocatore VARCHAR(50) references giocatore(nome), gol INTEGER, PRIMARY KEY (partita, casa_trasferta, giocatore))");
+        st.executeUpdate("CREATE TABLE IF NOT EXISTS marcatore (partita varchar(50) references partita(avversario), casa_trasferta varchar(20) references partita(casa_trasferta), giocatore VARCHAR(50) references giocatore(nome), gol INTEGER, PRIMARY KEY (partita, casa_trasferta))");
         }
 		catch (SQLException e){ 
 			e.printStackTrace();

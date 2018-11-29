@@ -45,14 +45,12 @@ public class RosaController implements Initializable{
     @FXML
     private TextField nomeinput;
 
-    @FXML
-    private TextField cognomeinput;
+
 
     @FXML
     private TextField ruoloinput;
 
-    @FXML
-    private ComboBox<Integer> golinput;
+ 
 
 
     @FXML
@@ -96,11 +94,10 @@ public class RosaController implements Initializable{
 	@FXML
 	    void aggiungi(ActionEvent event) {
 		boolean cont = true;
-		if(numeroinput.getValue().equals(null) || nomeinput.getText()==null || cognomeinput.getText()==null){
+		if(numeroinput.getValue().equals(null) || nomeinput.getText()==null ){
 			messaggio.setText("Inserire almeno numero, nome e cognome");
 			System.out.println(numeroinput.getValue().toString());
 			System.out.println(nomeinput.getText());
-			System.out.println(cognomeinput.getText());
 			System.out.println("Inserire almeno numero, nome e cognome");
 			cont = false;
 		}
@@ -116,15 +113,11 @@ public class RosaController implements Initializable{
 				}
 				else {
 					System.out.println("Ok");
-					db.update("INSERT INTO Giocatore VALUES ('" +numeroinput.getValue()+ "','" + nomeinput.getText()+ "','"
-						+cognomeinput.getText()+ "','" + ruoloinput.getText() + "','" +golinput.getValue()+ "', 0, 0)");
+					db.update("INSERT INTO Giocatore VALUES ('" +numeroinput.getValue()+ "','" + nomeinput.getText()+"','" + ruoloinput.getText() + "',0, 0, 0)");
 				
-					  //vedere come inizializzare nuovamente la pagina..
 					
-				
-				
-				
 				}
+				
 			}	
 			
 			catch (SQLException ex) {
@@ -147,12 +140,11 @@ public class RosaController implements Initializable{
 			numeroinput.getItems().add(i);
 		}
 		
-		for(i=0; i<=150; ++i){
-			golinput.getItems().add(i);
-		}
+		
 		
 		i=2;
-        ResultSet rs = db.query("Select numero,nome,cognome,ruolo,gol from giocatore");
+		
+        ResultSet rs = db.query("Select numero,nome,ruolo,gol,assist from giocatore");
 		try {
 			
 			while(rs.next()) {
@@ -167,21 +159,21 @@ public class RosaController implements Initializable{
 	    		GridPane.setConstraints(port, 1, i);
 	    		griglia.getChildren().add(port);
 	    		
-	    		Label port1 = new Label();
-	    		port1.setText(rs.getString("cognome").toString());
-	    		GridPane.setConstraints(port1, 2, i);
-	    		griglia.getChildren().add(port1);
 	    		
 	    		Label port2 = new Label();
 	    		port2.setText(rs.getString("ruolo").toString());
-	    		GridPane.setConstraints(port2, 3, i);
+	    		GridPane.setConstraints(port2, 2, i);
 	    		griglia.getChildren().add(port2);
 	    		
 	    		Label port3 = new Label();
 	    		port3.setText(new Integer(rs.getInt("gol")).toString());
-	    		GridPane.setConstraints(port3, 4, i);
+	    		GridPane.setConstraints(port3, 3, i);
 	    		griglia.getChildren().add(port3);
 	    		
+	    		Label port5 = new Label();
+	    		port5.setText(new Integer(rs.getInt("assist")).toString());
+	    		GridPane.setConstraints(port5, 4, i);
+	    		griglia.getChildren().add(port5);
 	    		++i;}
 		} catch (SQLException e) {
 			e.printStackTrace();
