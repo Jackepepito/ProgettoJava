@@ -247,8 +247,8 @@ public class HomePageController implements Initializable {
 							new Integer(fallisubiti.getText().toString())));
 					series2.getData().add(new XYChart.Data<String, Integer>(user.getSquadra().toString(),
 							new Integer(fallicommessi.getText().toString())));
-
-					barchart.getData().addAll(series1, series2);
+                    
+                    barchart.getData().addAll(series1, series2);
 				}
 
 				// quando clicco sul bottone
@@ -333,7 +333,10 @@ public class HomePageController implements Initializable {
 					+ tiriTot.getValue() + "', '" + tiriPorta.getValue() + "', '" + falliCommessi.getValue() + "','"
 					+ falliSubiti.getValue() + "', '" + parate.getValue() + "')");
 			System.out.println("Inserimento avvenuto con successo!");
-
+            
+           
+    		
+    		
 		}
 		
 	}
