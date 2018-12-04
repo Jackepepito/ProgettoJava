@@ -112,8 +112,7 @@ public class HomePageController implements Initializable {
 	@FXML
 	private GridPane visualizza_partita;
 
-	@FXML
-	private PieChart grafico_sinistra;
+	
 
 	@FXML
 	private PieChart grafico_destra;
@@ -205,14 +204,14 @@ public class HomePageController implements Initializable {
 
 		i = 0;
 		ResultSet rs1 = db.query(
-				"Select avversario,gol_segnati, gol_subiti,possesso_palla, falli_commessi, falli_subiti from partita");
+				"Select avversario,casa_trasferta,gol_segnati, gol_subiti,possesso_palla, falli_commessi, falli_subiti from partita");
 		try {
 
 			while (rs1.next()) {
 
 				Button partita = new Button();
 				partita.setMinWidth(550);
-
+				Label casatrasferta = new Label();
 				Label squadra = new Label();
 				Label golsegnati = new Label();
 				Label golsubiti = new Label();
@@ -221,7 +220,8 @@ public class HomePageController implements Initializable {
 				Label nome_completo = new Label();
 				Label fallicommessi = new Label();
 				Label fallisubiti = new Label();
-
+             
+				casatrasferta.setText(rs1.getString("casa_trasferta"));
 				fallicommessi.setText(new Integer(rs1.getInt("falli_commessi")).toString());
 				fallisubiti.setText(new Integer(rs1.getInt("falli_subiti")).toString());
 				squadra.setText(user.getSquadra().toString());
@@ -229,11 +229,26 @@ public class HomePageController implements Initializable {
 				golsubiti.setText(new Integer(rs1.getInt("gol_subiti")).toString());
 				avversario.setText(rs1.getString("avversario"));
 				possessopalla.setText(new Integer(rs1.getInt("possesso_palla")).toString());
+				
+				if(casatrasferta.getText().equals("Home")) {
 				nome_completo.setText((squadra.getText().toString().concat("      ")
 						.concat(golsegnati.getText().toString()).concat("  ").concat(golsubiti.getText().toString())
 						.concat("      ").concat(avversario.getText().toString())));
+				
+				}
+				else {
+					nome_completo.setText((avversario.getText().toString().concat("      ")
+							.concat(golsubiti.getText().toString()).concat("  ").concat(golsegnati.getText().toString())
+							.concat("      ").concat(squadra.getText().toString())));
+				
+					
+				}
+             
 				partita.setText(nome_completo.getText().toString());
-
+				
+				
+				
+				
 				// inizializzo il grafico centrale
 				if (i == 0) {
 					barchart.setTitle("Statistiche");
@@ -254,8 +269,7 @@ public class HomePageController implements Initializable {
 				// quando clicco sul bottone
 				partita.setOnAction(event -> {
 					// prima cancello
-					grafico_sinistra.getData().clear();
-
+					
 					grafico_destra.getData().clear();
 					series1.getData().clear();
 					series2.getData().clear();
@@ -277,16 +291,23 @@ public class HomePageController implements Initializable {
 					barchart.getData().addAll(series1, series2);
 
 					
-					grafico_sinistra.setAnimated(true);
-					grafico_destra.setAnimated(true);
 					
-					ObservableList<PieChart.Data> dataset1 = FXCollections.observableArrayList();
-					dataset1.add(new PieChart.Data("Possesso Palla", new Double(possessopalla.getText().toString())));
-					grafico_sinistra.setData(dataset1);
+					
+					
 					
 					ObservableList<PieChart.Data> dataset2 = FXCollections.observableArrayList();
-					dataset2.add(new PieChart.Data("Possesso Palla", new Double(possessopalla.getText().toString())));
+					
+					dataset2.add(new PieChart.Data("Possesso Palla", 100-(new Double(possessopalla.getText().toString()))));
 					grafico_destra.setData(dataset2);
+					
+					dataset2.add(new PieChart.Data("Possesso Palla", new Double(possessopalla.getText().toString())));
+					
+					grafico_destra.setData(dataset2);
+					
+					
+					grafico_destra.setTitle("possesso palla");
+				
+					grafico_destra.setAnimated(true);
 			    	
 				});
 
@@ -296,30 +317,6 @@ public class HomePageController implements Initializable {
 				griglia.getChildren().add(partita);
 				griglia.getRowConstraints().add(row);
 
-				if (i == 0) {
-
-					// Label avversario1 = new Label();
-					// avversario1.setText(rs1.getString("avversario").toString());
-					// GridPane.setConstraints(avversario1, 1, 0);
-					// visualizza_partita.getChildren().add(avversario1);
-					//
-					// Label golsegnati = new Label();
-					// golsegnati.setText(new Integer(rs1.getInt("gol_segnati")).toString());
-					// GridPane.setConstraints(golsegnati, 1, 1);
-					// visualizza_partita.getChildren().add(golsegnati);
-					//
-					//
-					// Label golsubiti = new Label();
-					// golsegnati.setText(new Integer(rs1.getInt("gol_subiti")).toString());
-					// GridPane.setConstraints(golsubiti, 1, 2);
-					// visualizza_partita.getChildren().add(golsubiti);
-					//
-					// Label possessopalla = new Label();
-					// possessopalla.setText(new Integer(rs1.getInt("possesso_palla")).toString());
-					// GridPane.setConstraints(possessopalla, 1, 4);
-					// visualizza_partita.getChildren().add(possessopalla);
-					//
-				}
 				++i;
 			}
 		} catch (SQLException e) {
