@@ -59,9 +59,8 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <PieChart fx:id="grafico_sinistra" layoutX="316.0" layoutY="115.0" prefHeight="178.0" prefWidth="194.0" />
-            <PieChart fx:id="grafico_destra" layoutX="793.0" layoutY="115.0" prefHeight="178.0" prefWidth="194.0" />
-            <BarChart fx:id="barchart" layoutX="513.0" layoutY="90.0" prefHeight="217.0" prefWidth="299.0">
+            <PieChart fx:id="grafico_destra" layoutX="617.0" layoutY="96.0" prefHeight="204.0" prefWidth="221.0" />
+            <BarChart fx:id="barchart" layoutX="55.0" layoutY="89.0" prefHeight="217.0" prefWidth="299.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
