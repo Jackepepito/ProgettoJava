@@ -254,6 +254,9 @@ public class HomePageController implements Initializable {
 				// quando clicco sul bottone
 				partita.setOnAction(event -> {
 					// prima cancello
+					grafico_sinistra.getData().clear();
+
+					grafico_destra.getData().clear();
 					series1.getData().clear();
 					series2.getData().clear();
 
@@ -273,6 +276,18 @@ public class HomePageController implements Initializable {
 					// aggiungo
 					barchart.getData().addAll(series1, series2);
 
+					
+					grafico_sinistra.setAnimated(true);
+					grafico_destra.setAnimated(true);
+					
+					ObservableList<PieChart.Data> dataset1 = FXCollections.observableArrayList();
+					dataset1.add(new PieChart.Data("Possesso Palla", new Double(possessopalla.getText().toString())));
+					grafico_sinistra.setData(dataset1);
+					
+					ObservableList<PieChart.Data> dataset2 = FXCollections.observableArrayList();
+					dataset2.add(new PieChart.Data("Possesso Palla", new Double(possessopalla.getText().toString())));
+					grafico_destra.setData(dataset2);
+			    	
 				});
 
 				RowConstraints row = new RowConstraints(40);
@@ -406,4 +421,6 @@ public class HomePageController implements Initializable {
 		}
 	}
 
+
+	
 }

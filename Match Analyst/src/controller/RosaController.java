@@ -118,7 +118,7 @@ public class RosaController implements Initializable{
 					db.update("INSERT INTO Giocatore VALUES ('" +numeroinput.getValue()+ "','" + nomeinput.getText()+"','" + ruoloinput.getText() + "',0, 0, 0)");
 					
 					ResultSet rs3 = db.query("Select count(*) AS TOTAL  from giocatore");
-					System.out.println("Ok2");
+					
 					 i=rs3.getInt("total");
 					 i*=5;
 					 int k=6; //i primi 5 sono le label sopra, poi ci sono 5 nodi per riga, che sono i dati dei giocatori
