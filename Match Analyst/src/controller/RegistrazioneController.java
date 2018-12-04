@@ -91,6 +91,7 @@ public class RegistrazioneController implements Initializable {
     		ripetiPassword.clear();
     		squadra.clear();
     }
+    
     @FXML
     void registrazione(ActionEvent event) {
 
