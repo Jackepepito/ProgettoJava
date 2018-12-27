@@ -30,24 +30,23 @@
                         <Font name="System Italic" size="22.0" />
                      </font>
                   </Label>
-                  <Button fx:id="aggiungi" layoutX="615.0" layoutY="167.0" mnemonicParsing="false" onAction="#aggiungi" opacity="0.6" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #b60109;" text="AGGIUNGI" textFill="WHITE">
+                  <Button fx:id="aggiungi" layoutX="756.0" layoutY="167.0" mnemonicParsing="false" onAction="#aggiungi" opacity="0.6" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #b60109;" text="AGGIUNGI" textFill="WHITE">
                      <font>
                         <Font name="Coco Gothic Bold" size="13.0" />
                      </font></Button>
-                  <TextField fx:id="nomeinput" layoutX="110.0" layoutY="167.0" prefHeight="32.0" prefWidth="235.0" />
-                  <TextField fx:id="ruoloinput" layoutX="353.0" layoutY="167.0" prefHeight="32.0" prefWidth="242.0" />
-                  <ComboBox fx:id="numeroinput" layoutX="12.0" layoutY="166.0" opacity="0.6" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #b60109;" />
+                  <TextField fx:id="nomeinput" layoutX="98.0" layoutY="172.0" prefHeight="20.0" prefWidth="310.0" promptText="Nome e Cognome" />
+                  <ComboBox fx:id="numeroinput" layoutX="12.0" layoutY="169.0" opacity="0.6" prefHeight="20.0" prefWidth="70.0" style="-fx-background-color: #b60109;" styleClass="my-list-cell" stylesheets="@combo2.css" />
                   <AnchorPane layoutX="9.0" layoutY="211.0" prefHeight="1000.0" prefWidth="662.0">
                      <children>
                         <ScrollPane layoutX="2.0" layoutY="0.5">
                            <content>
                               <AnchorPane opacity="0.78" prefWidth="850.0">
                                  <children>
-                                    <GridPane fx:id="griglia" gridLinesVisible="true" layoutX="1.0" layoutY="1.0" prefHeight="406.0" prefWidth="850.0" style="-fx-background-color: #B60109;">
+                                    <GridPane fx:id="griglia" gridLinesVisible="true" layoutX="1.0" layoutY="1.0" prefHeight="406.0" prefWidth="850.0" style="-fx-background-color: white;">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.4000244140625" minWidth="0.0" prefWidth="95.000004196167" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="730.0" minWidth="10.0" prefWidth="242.60000000000002" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="735.2000122070311" minWidth="10.0" prefWidth="252.80000000000007" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.4000244140625" minWidth="0.0" prefWidth="73.8" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="730.0" minWidth="10.0" prefWidth="329.6000122070312" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="735.2000122070311" minWidth="10.0" prefWidth="327.1999877929687" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="689.2000732421875" minWidth="0.600067138671875" prefWidth="110.0" />
                                       </columnConstraints>
                                       <rowConstraints>
@@ -66,7 +65,7 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label prefHeight="21.0" prefWidth="98.0" text="  NUMERO" textFill="WHITE">
+                                          <Label prefHeight="22.0" prefWidth="81.0" text="  NUMERO" textFill="WHITE">
                                              <font>
                                                 <Font name="Coco Gothic Bold" size="15.0" />
                                              </font>
@@ -88,9 +87,10 @@
                   </AnchorPane>
                   <AnchorPane layoutX="899.5" layoutY="209.5" style="-fx-background-color: white;">
                      <children>
-                        <GridPane gridLinesVisible="true" layoutX="0.5" layoutY="0.5" opacity="0.74" prefHeight="409.0" prefWidth="422.0" style="-fx-background-color: #B60109;">
+                        <GridPane fx:id="GrigliaMarcatori" gridLinesVisible="true" layoutX="0.5" layoutY="0.5" opacity="0.74" prefHeight="409.0" prefWidth="422.0" style="-fx-background-color: white;">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.60009765625" minWidth="10.0" prefWidth="312.60009765625" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.199951171875" minWidth="10.0" prefWidth="109.39990234375" />
                           </columnConstraints>
                           <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -111,6 +111,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <ComboBox fx:id="sceltaruolo" layoutX="435.0" layoutY="172.0" prefHeight="20.0" prefWidth="303.0" promptText="                                    RUOLO" />
                </children>
             </AnchorPane>
          </children>

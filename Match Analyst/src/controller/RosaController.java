@@ -50,6 +50,12 @@ public class RosaController implements Initializable {
 	@FXML
 	private GridPane griglia;
 
+    @FXML
+    private GridPane GrigliaMarcatori;
+    
+    @FXML
+    private ComboBox<String> sceltaruolo;
+    
 	@FXML
 	private Label messaggio;
 
@@ -100,7 +106,7 @@ public class RosaController implements Initializable {
 				} else {
 					System.out.println("Ok");
 					db.update("INSERT INTO Giocatore VALUES ('" + numeroinput.getValue() + "','" + nomeinput.getText()
-							+ "','" + ruoloinput.getText() + "',0, 0, 0)");
+							+ "','" + sceltaruolo.getValue() + "',0, 0)");
 
 					ResultSet rs3 = db.query("Select count(*) AS TOTAL  from giocatore");
 
@@ -117,7 +123,7 @@ public class RosaController implements Initializable {
 					// reinserimento dei giocatori
 					i = 2;
 
-					ResultSet rs2 = db.query("Select numero,nome,ruolo,gol,assist from giocatore");
+					ResultSet rs2 = db.query("Select numero,nome,ruolo,gol from giocatore");
 					try {
 
 						while (rs.next()) {
@@ -142,10 +148,7 @@ public class RosaController implements Initializable {
 							GridPane.setConstraints(port3, 3, i);
 							griglia.getChildren().add(port3);
 
-							Label port5 = new Label();
-							port5.setText(new Integer(rs2.getInt("assist")).toString());
-							GridPane.setConstraints(port5, 4, i);
-							griglia.getChildren().add(port5);
+							
 
 							++i;
 						}
@@ -165,18 +168,68 @@ public class RosaController implements Initializable {
 
 	}
 
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		nomesquadra.setText(user.getSquadra());
+		
 		int i;
+		int numero;
+		int controllo;
+		
+		
+		nomesquadra.setText(user.getSquadra());
+		
+		sceltaruolo.getItems().add("Portiere");
+		sceltaruolo.getItems().add("Difensore");
+		sceltaruolo.getItems().add("Centrocampista");
+		sceltaruolo.getItems().add("Attaccante");
 		// inserire controllo sui numeri disponibili
 		for (i = 0; i <= 99; ++i) {
-			numeroinput.getItems().add(i);
+			ResultSet rsNumero = db.query("Select numero from giocatore");
+			controllo=0;
+			try {
+				while (rsNumero.next()) {
+				numero=new Integer(rsNumero.getInt("numero"));
+			if((int)numero==i) 
+				controllo=1;
+			System.out.print(controllo);
+			}
+			if(controllo==0)
+				numeroinput.getItems().add(i);
+		 }
+			catch(SQLException e) {
+				e.printStackTrace();
+
+			}
+		
+		 }
+		
+		i=0;
+		ResultSet rsgol = db.query("Select nome,gol from giocatore order by gol limit 5");
+		try {
+
+			while (rsgol.next()) {
+				Label marcatore = new Label();
+				marcatore.setText(rsgol.getString("nome").toString());
+				GridPane.setConstraints(marcatore, 0, i);
+				GrigliaMarcatori.getChildren().add(marcatore);
+				
+				Label golfatti = new Label();
+				golfatti.setText(new Integer(rsgol.getInt("gol")).toString());
+				GridPane.setConstraints(golfatti, 1, i);
+				GrigliaMarcatori.getChildren().add(golfatti);
+				
+				++i;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
 		}
+		
 
 		i = 2;
 
-		ResultSet rs = db.query("Select numero,nome,ruolo,gol,assist from giocatore");
+		ResultSet rs = db.query("Select numero,nome,ruolo,gol from giocatore");
 		try {
 
 			while (rs.next()) {
@@ -201,10 +254,7 @@ public class RosaController implements Initializable {
 				GridPane.setConstraints(port3, 3, i);
 				griglia.getChildren().add(port3);
 
-				Label port5 = new Label();
-				port5.setText(new Integer(rs.getInt("assist")).toString());
-				GridPane.setConstraints(port5, 4, i);
-				griglia.getChildren().add(port5);
+				
 
 				++i;
 			}
