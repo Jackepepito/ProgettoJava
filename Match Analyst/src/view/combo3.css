@@ -1,12 +1,12 @@
 .combo-box .cell{
     -fx-text-fill: #b60109;
-    -fx-font: 14px "Couture";
+    -fx-font: 13px "Couture";
 }
 .my-list-cell {
     -fx-text-fill: #b60109;
-    -fx-font: 14px "Couture";
+    -fx-font: 13px "Couture";
     /* No alternate highlighting */
-    -fx-background-color: #b60109;
+    -fx-background-color: #fffFff;
 }
 
 .combo-box .cell:selected {

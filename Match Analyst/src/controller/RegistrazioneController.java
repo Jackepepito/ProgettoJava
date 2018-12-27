@@ -97,8 +97,7 @@ public class RegistrazioneController implements Initializable {
 
     	boolean cont = true;
 		if(username.getText().isEmpty() || password.getText().isEmpty() || ripetiPassword.getText().isEmpty() || stagione.getValue()==null){
-			messaggio.setText("Riempire i campi obbligatori");
-			System.out.println("Riempire i campi obbligatori");
+			messaggio.setText("Riempire i campi lasciati vuoti!");
 			cont = false;
 		}
 	
@@ -110,7 +109,7 @@ public class RegistrazioneController implements Initializable {
 					messaggio.setText("Username non valido");
 					if(password.getText() != ripetiPassword.getText())
 					{
-						messaggio.setText("Le due password inserite non corrispondono");
+						messaggio.setText("Le due password inserite non corrispondono!");
 					}
 				}
 				else {
