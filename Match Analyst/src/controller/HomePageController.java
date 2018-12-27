@@ -357,6 +357,11 @@ public class HomePageController implements Initializable {
 	void aggiungiMarcatore(ActionEvent event) {
 		int sum = 0;
 		boolean cont = true;
+		int golcorrenti;
+		ResultSet rs1 = db.query(
+				"Select gol from giocatore where nome like '"+marcatori.getText().toString()+"' ");
+		try {
+		golcorrenti=new Integer(rs1.getInt("gol"));
 		sum += gol.getValue();
 		if(marcatori.getText().isEmpty() || gol.getItems().isEmpty())
 		{
@@ -371,7 +376,15 @@ public class HomePageController implements Initializable {
 		}
 		if(cont)
 		{
+			System.out.print((int)golcorrenti);
+		golcorrenti+=gol.getValue();
+		System.out.print((int)golcorrenti);
 		db.update("INSERT INTO marcatore VALUES ('"+avversario.getText()+"','" +casaTrasf.getValue()+"', '" +marcatori.getText()+ "', '" +gol.getValue()+ "')");
+		db.update("UPDATE giocatore set gol ='"+golcorrenti+"' where nome like '"+marcatori.getText().toString()+"' ");
+		}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
 	}
