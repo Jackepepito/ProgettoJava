@@ -297,10 +297,12 @@ public class HomePageController implements Initializable {
 					
 					ObservableList<PieChart.Data> dataset2 = FXCollections.observableArrayList();
 					
-					dataset2.add(new PieChart.Data("Possesso Palla", 100-(new Double(possessopalla.getText().toString()))));
+					dataset2.add(new PieChart.Data(avversario.getText().toString(),100-(new Double(possessopalla.getText().toString()))));
 					grafico_destra.setData(dataset2);
 					
-					dataset2.add(new PieChart.Data("Possesso Palla", new Double(possessopalla.getText().toString())));
+					
+					dataset2.add(new PieChart.Data(user.getSquadra().toString(),(new Double(possessopalla.getText().toString()))));
+					grafico_destra.setData(dataset2);
 					
 					grafico_destra.setData(dataset2);
 					
