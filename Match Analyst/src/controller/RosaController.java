@@ -108,14 +108,15 @@ public class RosaController implements Initializable {
 					db.update("INSERT INTO Giocatore VALUES ('" + numeroinput.getValue() + "','" + nomeinput.getText()
 							+ "','" + sceltaruolo.getValue() + "',0, 0)");
 
-					ResultSet rs3 = db.query("Select count(*) AS TOTAL  from giocatore");
-
-					i = rs3.getInt("total");
-					i *= 5;
-					int k = 6; // i primi 5 sono le label sopra, poi ci sono 5 nodi per riga, che sono i dati
+					ResultSet rs3 = db.query("Select count(numero) from giocatore");
+					i = rs3.getInt(1);
+					System.out.print(i);
+					
+					i *= 4;
+					int k = 5; // i primi 4 sono le label sopra, poi ci sono 4 nodi per riga, che sono i dati
 								// dei giocatori
 
-					System.out.println(k);
+					System.out.print(k);
 					griglia.getChildren().remove(k, i + 1);
 
 					griglia.setGridLinesVisible(true);

@@ -330,7 +330,7 @@ public class HomePageController implements Initializable {
 
 		boolean cont = true;
 		if (avversario.getText().isEmpty() || casaTrasf.getItems().isEmpty() || golSegnati.getItems().isEmpty()
-				|| golSubiti.getItems().isEmpty() || marcatori.getText().isEmpty() || gol.getItems().isEmpty()
+				|| golSubiti.getItems().isEmpty() ||  gol.getItems().isEmpty()
 				|| possessoPalla.getItems().isEmpty() || tiriTot.getItems().isEmpty() || tiriPorta.getItems().isEmpty()
 				|| falliCommessi.getItems().isEmpty() || falliSubiti.getItems().isEmpty()
 				|| parate.getItems().isEmpty()) {
