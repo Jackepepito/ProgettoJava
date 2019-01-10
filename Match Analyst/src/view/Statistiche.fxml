@@ -36,7 +36,7 @@
                <children>
                   <LineChart fx:id="graficoGolSegnati" layoutX="28.0" layoutY="46.0" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #b60109;">
                     <xAxis>
-                      <CategoryAxis prefWidth="459.0" side="BOTTOM" tickLabelFill="WHITE" fx:id="x1">
+                      <CategoryAxis prefHeight="11.0" prefWidth="638.0" side="BOTTOM" startMargin="0.0" tickLabelFill="WHITE" fx:id="x1">
                            <tickLabelFont>
                               <Font name="Coco Gothic Bold" size="12.0" />
                            </tickLabelFont>
@@ -60,6 +60,38 @@
                      </xAxis>
                      <yAxis>
                         <NumberAxis fx:id="y2" prefHeight="356.0" prefWidth="31.0" side="LEFT" tickLabelFill="WHITE">
+                           <tickLabelFont>
+                              <Font name="Arial Bold" size="12.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                     </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="graficoTiriPorta" layoutX="38.0" layoutY="56.0" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #b60109;">
+                     <xAxis>
+                        <CategoryAxis prefWidth="459.0" side="BOTTOM" tickLabelFill="WHITE" fx:id="x3">
+                           <tickLabelFont>
+                              <Font name="Coco Gothic Bold" size="11.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="y3" prefHeight="356.0" prefWidth="31.0" side="LEFT" tickLabelFill="WHITE">
+                           <tickLabelFont>
+                              <Font name="Arial Bold" size="12.0" />
+                           </tickLabelFont>
+                        </NumberAxis>
+                     </yAxis>
+                  </LineChart>
+                  <LineChart fx:id="graficoTiriTot" layoutX="48.0" layoutY="66.0" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #b60109;">
+                     <xAxis>
+                        <CategoryAxis prefWidth="459.0" side="BOTTOM" tickLabelFill="WHITE" fx:id="x4">
+                           <tickLabelFont>
+                              <Font name="Coco Gothic Bold" size="11.0" />
+                           </tickLabelFont>
+                        </CategoryAxis>
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis fx:id="y4" prefHeight="356.0" prefWidth="31.0" side="LEFT" tickLabelFill="WHITE">
                            <tickLabelFont>
                               <Font name="Arial Bold" size="12.0" />
                            </tickLabelFont>

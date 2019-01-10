@@ -46,6 +46,12 @@ public class StatisticheController implements Initializable {
 
 	@FXML
 	private LineChart<String, Integer> graficoGolSubiti;
+	
+	@FXML
+	private LineChart<String, Integer> graficoTiriPorta;
+	
+	@FXML
+	private LineChart<String, Integer> graficoTiriTot;
 
 	@FXML
 	private CategoryAxis x1;
@@ -58,6 +64,18 @@ public class StatisticheController implements Initializable {
 
 	@FXML
 	private NumberAxis y2;
+	
+	@FXML
+	private CategoryAxis x3;
+
+	@FXML
+	private NumberAxis y3;
+	
+	@FXML
+	private CategoryAxis x4;
+
+	@FXML
+	private NumberAxis y4;
 
 	private XYChart.Series<String, Integer> series;
 
@@ -84,6 +102,8 @@ public class StatisticheController implements Initializable {
 	void mostra(ActionEvent event) {
 		graficoGolSegnati.setVisible(false);
 		graficoGolSubiti.setVisible(false);
+		graficoTiriPorta.setVisible(false);
+		graficoTiriTot.setVisible(false);
 		if (sceltaGrafico.getValue().equals("Gol Fatti")) {
 			creaGrafico(graficoGolSegnati, x1, y1, "gol_segnati");
 		}
@@ -91,20 +111,26 @@ public class StatisticheController implements Initializable {
 		if (sceltaGrafico.getValue().equals("Gol Subiti")) {
 			creaGrafico(graficoGolSubiti, x2, y2, "gol_subiti");
 		}
+		
+		if (sceltaGrafico.getValue().equals("Tiri Totali")) {
+			creaGrafico(graficoTiriTot, x3, y3, "tiri_tot");
+		}
+		
+		if (sceltaGrafico.getValue().equals("Tiri in Porta")) {
+			creaGrafico(graficoTiriPorta, x4, y4, "tiri_porta");
+		}
 	}
 
 	private void creaGrafico(LineChart<String, Integer> grafico, CategoryAxis x, NumberAxis y, String s) {
 		grafico.setLegendVisible(false);
-		x.setLabel("Avversario");
-		y.setLabel("Gol");
 		series = new XYChart.Series<String, Integer>();
 		series.setName(s);
-		ResultSet rs = db.query("SELECT " + s + ", avversario FROM partita ");
+		ResultSet rs = db.query("SELECT " + s + ", avversario FROM partita where squadra = '" +user.getSquadra()+ "'");
 		try {
 			while (rs.next()) {
 				System.out.println(rs.getString("avversario") + " " + rs.getInt(s));
 				series.getData().add(new XYChart.Data<String, Integer>(rs.getString("avversario"), rs.getInt(s)));
-			}
+		}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -120,6 +146,8 @@ public class StatisticheController implements Initializable {
 
 		sceltaGrafico.getItems().add("Gol Fatti");
 		sceltaGrafico.getItems().add("Gol Subiti");
+		sceltaGrafico.getItems().add("Tiri Totali");
+		sceltaGrafico.getItems().add("Tiri in Porta");
 
 	}
 }

@@ -98,14 +98,14 @@ public class RosaController implements Initializable {
 		if (cont) {
 			try {
 				ResultSet rs;
-				rs = db.query("SELECT * FROM giocatore U where U.numero = '" + numeroinput.getValue() + "'");
+				rs = db.query("SELECT * FROM giocatore U where U.numero = '" + numeroinput.getValue() + "' and squadra = '" +user.getSquadra()+"'");
 				int i = 0;
 
 				if (rs.next()) {
 					messaggio.setText("Numero non disponibile");
 				} else {
 					System.out.println("Ok");
-					db.update("INSERT INTO Giocatore VALUES ('" + numeroinput.getValue() + "','" + nomeinput.getText()
+					db.update("INSERT INTO Giocatore VALUES ('" + numeroinput.getValue() + "', '" +user.getSquadra()+ "','" + nomeinput.getText()
 							+ "','" + sceltaruolo.getValue() + "',0, 0)");
 
 					ResultSet rs3 = db.query("Select count(numero) from giocatore");
@@ -124,7 +124,7 @@ public class RosaController implements Initializable {
 					// reinserimento dei giocatori
 					i = 2;
 
-					ResultSet rs2 = db.query("Select numero,nome,ruolo,gol from giocatore");
+					ResultSet rs2 = db.query("Select numero,nome,ruolo,gol from giocatore where squadra = '" +user.getSquadra()+ "'");
 					try {
 
 						while (rs.next()) {
@@ -186,7 +186,7 @@ public class RosaController implements Initializable {
 		sceltaruolo.getItems().add("Attaccante");
 		// inserire controllo sui numeri disponibili
 		for (i = 0; i <= 99; ++i) {
-			ResultSet rsNumero = db.query("Select numero from giocatore");
+			ResultSet rsNumero = db.query("Select numero from giocatore where squadra = '" +user.getSquadra()+ "'");
 			controllo=0;
 			try {
 				while (rsNumero.next()) {
@@ -206,7 +206,7 @@ public class RosaController implements Initializable {
 		 }
 		
 		i=0;
-		ResultSet rsgol = db.query("Select nome,gol from giocatore order by gol limit 5");
+		ResultSet rsgol = db.query("Select nome,gol from giocatore where squadra = '" +user.getSquadra()+"' order by gol limit 5");
 		try {
 
 			while (rsgol.next()) {
@@ -230,7 +230,7 @@ public class RosaController implements Initializable {
 
 		i = 2;
 
-		ResultSet rs = db.query("Select numero,nome,ruolo,gol from giocatore");
+		ResultSet rs = db.query("Select numero,nome,ruolo,gol from giocatore where squadra = '" +user.getSquadra()+ "'");
 		try {
 
 			while (rs.next()) {

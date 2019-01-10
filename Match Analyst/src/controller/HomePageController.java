@@ -204,7 +204,7 @@ public class HomePageController implements Initializable {
 
 		i = 0;
 		ResultSet rs1 = db.query(
-				"Select avversario,casa_trasferta,gol_segnati, gol_subiti,possesso_palla, falli_commessi, falli_subiti from partita");
+				"Select avversario, squadra, casa_trasferta,gol_segnati, gol_subiti,possesso_palla, falli_commessi, falli_subiti from partita where squadra = '" +user.getSquadra()+ "'");
 		try {
 
 			while (rs1.next()) {
@@ -342,7 +342,7 @@ public class HomePageController implements Initializable {
 		}
 
 		if (cont) {
-			db.update("INSERT INTO partita VALUES ('" + avversario.getText() + "', '" + casaTrasf.getValue() + "','"
+			db.update("INSERT INTO partita VALUES ('" + avversario.getText() + "', '" +user.getSquadra() + "', '" + casaTrasf.getValue() + "','"
 					+ golSegnati.getValue() + "','" + golSubiti.getValue() + "', '" + possessoPalla.getValue() + "','"
 					+ tiriTot.getValue() + "', '" + tiriPorta.getValue() + "', '" + falliCommessi.getValue() + "','"
 					+ falliSubiti.getValue() + "', '" + parate.getValue() + "')");
