@@ -200,6 +200,16 @@
                   <Label fx:id="messaggioGol" layoutX="347.0" layoutY="155.0" textFill="WHITE" />
                </children>
             </AnchorPane>
+            <Label fx:id="messaggioPossessoPalla" layoutX="658.0" layoutY="18.0" text="POSSESSO PALLA" textFill="WHITE">
+               <font>
+                  <Font name="Coco Gothic Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="messaggioStatistiche" layoutX="174.0" layoutY="80.0" text="STATISTICHE" textFill="WHITE">
+               <font>
+                  <Font name="Coco Gothic Bold" size="13.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
   </content>
 </ScrollPane>

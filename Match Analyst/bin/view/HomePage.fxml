@@ -10,6 +10,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -59,7 +60,10 @@
                   <Font size="27.0" />
                </font>
             </Label>
-            <PieChart fx:id="grafico_destra" layoutX="533.0" layoutY="6.0" prefHeight="310.0" prefWidth="377.0" />
+            <PieChart fx:id="grafico_destra" layoutX="533.0" layoutY="6.0" prefHeight="310.0" prefWidth="377.0">
+               <effect>
+                  <Bloom />
+               </effect></PieChart>
             <BarChart fx:id="barchart" layoutX="55.0" layoutY="89.0" prefHeight="217.0" prefWidth="299.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
@@ -200,6 +204,16 @@
                   <Label fx:id="messaggioGol" layoutX="347.0" layoutY="155.0" textFill="WHITE" />
                </children>
             </AnchorPane>
+            <Label fx:id="messaggioPossessoPalla" layoutX="658.0" layoutY="18.0" text="POSSESSO PALLA" textFill="WHITE">
+               <font>
+                  <Font name="Coco Gothic Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="messaggioStatistiche" layoutX="174.0" layoutY="80.0" text="STATISTICHE" textFill="WHITE">
+               <font>
+                  <Font name="Coco Gothic Bold" size="13.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
   </content>
 </ScrollPane>

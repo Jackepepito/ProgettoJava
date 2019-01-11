@@ -34,6 +34,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.paint.Color;
 import view.TestApp;
 import model.*;
 import javafx.fxml.Initializable;
@@ -60,6 +61,12 @@ public class HomePageController implements Initializable {
 	
 	@FXML
 	private Label messaggioGol;
+	
+	@FXML
+	private Label messaggioPossessoPalla;
+	
+	@FXML
+	private Label messaggioStatistiche;
 
 	@FXML
 	private BarChart<String, Integer> barchart;
@@ -131,6 +138,8 @@ public class HomePageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		nomesquadra.setText(user.getSquadra());
 		nomecognome.setText(user.getNome() + " " + user.getCognome());
+		messaggioPossessoPalla.setVisible(false);
+		messaggioStatistiche.setVisible(false);
 
 		XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
 		series1.setName("gol");
@@ -251,8 +260,7 @@ public class HomePageController implements Initializable {
 				
 				// inizializzo il grafico centrale
 				if (i == 0) {
-					barchart.setTitle("Statistiche");
-
+					messaggioStatistiche.setVisible(true);
 					series1.getData().add(new XYChart.Data<String, Integer>(avversario.getText().toString(),
 							new Integer(golsubiti.getText().toString())));
 					series1.getData().add(new XYChart.Data<String, Integer>(user.getSquadra().toString(),
@@ -273,9 +281,8 @@ public class HomePageController implements Initializable {
 					grafico_destra.getData().clear();
 					series1.getData().clear();
 					series2.getData().clear();
-
-					barchart.setTitle("Statistiche");
-
+					
+					messaggioStatistiche.setVisible(true);
 					// poi inserisco i nuovi dati
 					series1.getData().add(new XYChart.Data<String, Integer>(avversario.getText().toString(),
 							new Integer(golsubiti.getText().toString())));
@@ -289,8 +296,6 @@ public class HomePageController implements Initializable {
 
 					// aggiungo
 					barchart.getData().addAll(series1, series2);
-
-					
 					
 					
 					
@@ -306,8 +311,7 @@ public class HomePageController implements Initializable {
 					
 					grafico_destra.setData(dataset2);
 					
-					
-					grafico_destra.setTitle("possesso palla");
+					messaggioPossessoPalla.setVisible(true);
 				
 					grafico_destra.setAnimated(true);
 			    	
