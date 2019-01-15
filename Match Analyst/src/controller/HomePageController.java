@@ -29,6 +29,7 @@ import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -82,6 +83,8 @@ public class HomePageController implements Initializable {
 
 	@FXML
 	private TextField avversario;
+	
+	
 
 	@FXML
 	private ComboBox<Integer> golSegnati;
@@ -89,8 +92,9 @@ public class HomePageController implements Initializable {
 	@FXML
 	private ComboBox<Integer> golSubiti;
 
-	@FXML
-	private TextField marcatori;
+
+    @FXML
+    private ComboBox<String> marcatori;
 
 	@FXML
 	private ComboBox<Integer> possessoPalla;
@@ -115,6 +119,18 @@ public class HomePageController implements Initializable {
 
 	@FXML
 	private ComboBox<Integer> gol;
+	
+	
+
+	    @FXML
+	    private TextField tiriTabella;
+
+	    @FXML
+	    private TextField tiriPortaTabella;
+
+	    @FXML
+	    private TextField parateTabella;
+
 
 	@FXML
 	private GridPane visualizza_partita;
@@ -134,12 +150,15 @@ public class HomePageController implements Initializable {
 	 * settare le informazioni dell'utente
 	 */
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		nomesquadra.setText(user.getSquadra());
 		nomecognome.setText(user.getNome() + " " + user.getCognome());
 		messaggioPossessoPalla.setVisible(false);
 		messaggioStatistiche.setVisible(false);
+		
+		
 
 		XYChart.Series<String, Integer> series1 = new XYChart.Series<String, Integer>();
 		series1.setName("gol");
@@ -276,8 +295,10 @@ public class HomePageController implements Initializable {
 
 				// quando clicco sul bottone
 				partita.setOnAction(event -> {
-					// prima cancello
 					
+					// prima cancello
+					grafico_destra.setAnimated(false);
+					barchart.setAnimated(false);
 					grafico_destra.getData().clear();
 					series1.getData().clear();
 					series2.getData().clear();
@@ -295,10 +316,14 @@ public class HomePageController implements Initializable {
 							new Integer(fallicommessi.getText().toString())));
 
 					// aggiungo
-					barchart.getData().addAll(series1, series2);
+					try {
+						barchart.getData().addAll(series1, series2);}
+					catch(Exception e){
+						System.out.println("ciao");
+					}
 					
 					
-					
+				
 					
 					ObservableList<PieChart.Data> dataset2 = FXCollections.observableArrayList();
 					
@@ -314,6 +339,22 @@ public class HomePageController implements Initializable {
 					messaggioPossessoPalla.setVisible(true);
 				
 					grafico_destra.setAnimated(true);
+					barchart.setAnimated(true);
+					
+					ResultSet rs = db.query("Select tiri_tot,tiri_porta,parate from partita where squadra = '" +user.getSquadra()+ "' and avversario = '" +avversario.getText().toString()+"'");
+					try {
+
+						while (rs.next()) {
+
+						tiriTabella.setText(rs.getString("tiri_tot").toString());
+						tiriPortaTabella.setText(rs.getString("tiri_porta").toString());
+						parateTabella.setText(rs.getString("parate").toString());
+							
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+
+					}
 			    	
 				});
 
@@ -327,6 +368,28 @@ public class HomePageController implements Initializable {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+		
+		ResultSet rs = db.query("Select numero,nome,ruolo,gol from giocatore where squadra = '" +user.getSquadra()+ "'");
+		try {
+
+			while (rs.next()) {
+
+			
+
+				Label port = new Label();
+				port.setText(rs.getString("nome").toString());
+				
+
+				
+				marcatori.getItems().add(port.getText());
+
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+
 		}
 
 	}
@@ -365,11 +428,11 @@ public class HomePageController implements Initializable {
 		boolean cont = true;
 		int golcorrenti;
 		ResultSet rs1 = db.query(
-				"Select gol from giocatore where nome like '"+marcatori.getText().toString()+"' ");
+				"Select gol from giocatore where nome like '"+marcatori.getValue().toString()+"' and squadra = '" +user.getSquadra()+ "'");
 		try {
 		golcorrenti=new Integer(rs1.getInt("gol"));
 		sum += gol.getValue();
-		if(marcatori.getText().isEmpty() || gol.getItems().isEmpty())
+		if(marcatori.getValue().isEmpty() || gol.getItems().isEmpty())
 		{
 			messaggio.setText("Riempire i campi obbligatori");
 			cont = false;
@@ -385,8 +448,8 @@ public class HomePageController implements Initializable {
 			System.out.print((int)golcorrenti);
 		golcorrenti+=gol.getValue();
 		System.out.print((int)golcorrenti);
-		db.update("INSERT INTO marcatore VALUES ('"+avversario.getText()+"','" +casaTrasf.getValue()+"', '" +marcatori.getText()+ "', '" +gol.getValue()+ "')");
-		db.update("UPDATE giocatore set gol ='"+golcorrenti+"' where nome like '"+marcatori.getText().toString()+"' ");
+		db.update("INSERT INTO marcatore VALUES ('"+avversario.getText()+"','" +casaTrasf.getValue()+"', '" +marcatori.getValue()+ "', '" +gol.getValue()+ "')");
+		db.update("UPDATE giocatore set gol ='"+golcorrenti+"' where nome like '"+marcatori.getValue().toString()+"' ");
 		}
 		}
 		catch (SQLException e) {
@@ -408,6 +471,8 @@ public class HomePageController implements Initializable {
 			e1.printStackTrace();
 		}
 	}
+
+	
 
 	@FXML
 	void statistiche(ActionEvent event) {

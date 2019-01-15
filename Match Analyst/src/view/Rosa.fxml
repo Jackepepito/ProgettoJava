@@ -111,7 +111,13 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ComboBox fx:id="sceltaruolo" layoutX="435.0" layoutY="172.0" prefHeight="20.0" prefWidth="303.0" promptText="                                    RUOLO" />
+                  <ComboBox fx:id="sceltaruolo" layoutX="435.0" layoutY="172.0" prefHeight="20.0" prefWidth="303.0" promptText="RUOLO" />
+                  <Button fx:id="elimina" layoutX="756.0" layoutY="127.0" mnemonicParsing="false" onAction="#elimina" opacity="0.6" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: #b60109;" text="ELIMINA" textFill="WHITE">
+                     <font>
+                        <Font name="Coco Gothic Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="sceltagiocatore" layoutX="435.0" layoutY="130.0" prefHeight="20.0" prefWidth="303.0" promptText="GIOCATORE" />
                </children>
             </AnchorPane>
          </children>
